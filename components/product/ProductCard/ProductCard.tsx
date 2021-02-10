@@ -32,7 +32,7 @@ const ProductCard: FC<Props> = ({
   imgLayout = 'responsive',
 }) => {
   const src = p.images.edges?.[0]?.node?.urlOriginal!
-  const placeholderImg = '/product-img-placeholder.svg';
+  const placeholderImg = '/product-img-placeholder.svg'
   const { price } = usePrice({
     amount: p.prices?.price?.value,
     baseAmount: p.prices?.retailPrice?.value,

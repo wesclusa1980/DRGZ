@@ -9,9 +9,9 @@ import useRemoveItem from '@framework/cart/use-remove-item'
 import s from './CartItem.module.css'
 
 type ItemOption = {
-  name: string,
-  nameId: number,
-  value: string,
+  name: string
+  nameId: number
+  value: string
   valueId: number
 }
 
@@ -101,11 +101,15 @@ const CartItem = ({
         </Link>
         {item.options && item.options.length > 0 ? (
           <div className="">
-            {item.options.map((option:ItemOption, i: number) =>
-              <span key={`${item.id}-${option.name}`} className="text-sm font-semibold text-accents-7">
-                {option.value}{ i === item.options.length -1 ? "" : ", " }
+            {item.options.map((option: ItemOption, i: number) => (
+              <span
+                key={`${item.id}-${option.name}`}
+                className="text-sm font-semibold text-accents-7"
+              >
+                {option.value}
+                {i === item.options.length - 1 ? '' : ', '}
               </span>
-            )}
+            ))}
           </div>
         ) : null}
         <div className="flex items-center mt-3">
