@@ -22,59 +22,38 @@ const Dropzone = () => {
   var borderClass = classNames(
     "px-5 pb-9 pt-5",
     "border-gray-500",
-    "rounded-lg",
-    "text-right",
-    {
-      "border-2": !canDrop,
-      "border-4": canDrop,
-      "border-blue-700 border-4": canDrop && isOver,
-    }
-  );
-
-  var centerClass = classNames(
-    "px-5 pb-9 pt-4",
-    "border-gray-500",
-    "rounded-lg",
     "text-center",
+    "border-dashed",
+    "transition-all duration-500 ease-in-out",
     {
       "border-2": !canDrop,
       "border-4": canDrop,
-      "border-blue-700 border-4": canDrop && isOver,
+      "rounded-full": !(canDrop && isOver),
+      "border-blue-bright border-4 rounded bg-white": canDrop && isOver,
     }
   );
 
   var textClass = classNames("text-sm", "px-1", {
     "font-bold": canDrop,
-    "text-blue-700 ": isOver,
+    "text-blue-bright": isOver,
   });
 
   return (
     <div ref={drop} data-handler-id={handlerId}>
       <fieldset class={borderClass}>
-        {!user && (
-          <p>
-            When you have{" "}
-            <Link href="/signup">
-              <u>DRGZ</u>
-            </Link>{" "}
-            you can drag & drop a product here and it will be purchased
-            instantly!
-          </p>
-        )}
-        {user && !user.drgz && (
-          <p>
-            When you have{" "}
-            <Link href="/account">
-              <u>DRGZ</u>
-            </Link>{" "}
-            you can drag & drop a product here and it will be purchased
-            instantly!
-          </p>
-        )}
-        {user && user.drgz && (
+        {user && user.drgz ? (
           <p>
             With {user.drgz} available you can drag & drop a product here and it
             will be purchased instantly!
+          </p>
+        ) : (
+          <p>
+            When you have{" "}
+            <Link href={user && !user.drgz ? "/account" : "/signup"}>
+              <u>DRGZ</u>
+            </Link>{" "}
+            you can drag & drop a product here and it will be purchased
+            instantly!
           </p>
         )}
         <legend class={textClass}>BUY IT NOW</legend>

@@ -17,13 +17,17 @@ const Item = ({ name, imgPath, price, subtitle }) => {
     }),
   });
   var itemClass = classNames(
-    "border-4",
-    "border-dashed",
-    "border-gray-200",
-    "rounded-lg"
+    "max-w-xs",
+    "rounded-lg",
+    "overflow-hidden",
+    "shadow-lg",
+    "transform",
+    "duration-200",
+    "scale-95",
+    "hover:scale-100",
   );
   return (
-      <div ref={drag} data-handler-id={handlerId} class="max-w-sm rounded-lg overflow-hidden shadow-lg">
+      <div ref={drag} data-handler-id={handlerId} class={itemClass}>
         <img class="w-full" src={imgPath} alt="Mountain" />
         <div class="px-6 py-4 text-center text-gray-900">
           <div class="text-sm">{subtitle}</div>
