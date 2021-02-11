@@ -2,7 +2,7 @@
 > Hedera Token Service hackathon project
 
 ## Motivation
-The typical online checkout process involves multiple inputs and interactions. We wanted to remove all of the friction and pair our lightening quick purchasing experience with a 'native' payment token that offers near real-time finality. Genuine _Instant Purchases_ are now a thing!
+The typical online checkout process involves multiple inputs and interactions. We wanted to remove all of the friction and pair our lightening quick purchasing experience with a 'native' payment token that offers near real-time finality. **Genuine _Instant Purchases_ are now a thing!**
 
 ## User Stories
 
