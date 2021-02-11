@@ -3,19 +3,18 @@ import React from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
+import Dropzone from "./Dropzone";
 
 const SidebarItem = (props) => {
   return (
-    <Link href={props.href !== undefined ? props.href : "/"}>
-      <a
-        class={
-          "flex items-center space-x-3 justify-between w-100 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:shadow-outline " +
-          props.className
-        }
-      >
-        {props.children}
-      </a>
-    </Link>
+    <a
+      class={
+        "flex items-center space-x-3 justify-between w-100 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:shadow-outline " +
+        props.className
+      }
+    >
+      {props.children}
+    </a>
   );
 };
 
@@ -37,30 +36,42 @@ const Sidebar = (props) => {
   return (
     <div className="flex flex-col p-4 text-sm h-screen justify-between">
       <div className="flex flex-col">
-        <span className="tracking-wide font-bold text-3xl pl-2 pb-4 text-center">DRGZ</span>
+        <Link href="/">
+          <button className="tracking-wide font-bold text-3xl pl-2 text-center focus:outline-none">
+            DRGZ
+          </button>
+        </Link>
+        <span className="font-semibold text-gray-700 pl-2 py-4 text-center">
+          Buying and selling is now zero effort
+        </span>
         <div className="flex flex-col items-end">
-        <SidebarItem href="/">
-          <a className="flex align-text-bottom">
-            <span className="px-2 pt-1">Home</span>
+          <SidebarItem href="/">
+            <a className="flex align-text-bottom">
+              <span className="px-2 pt-1">Home</span>
 
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              class="text-gray-500 h-6 w-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-              />
-            </svg>
-          </a>
-        </SidebarItem>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="text-gray-500 h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+            </a>
+          </SidebarItem>
         </div>
       </div>
+      {router.pathname === "/" && (
+        <div className="flex w-full justify-center">
+          <Dropzone></Dropzone>
+        </div>
+      )}
       <div className="flex w-full justify-center align-middle">
         {user ? (
           <div class="w-full">
