@@ -11,6 +11,8 @@ The typical online checkout process involves multiple inputs and interactions. W
 
 When people transact, they want to be confident that once their transactions go through, that the transactions cannot be altered or reversed.
 
+Hedera enables the transactions on our DRGZ marketplace to reach finality in 3 to 5 seconds!
+
 ## System Overview
 
 ## Key focus for UX
