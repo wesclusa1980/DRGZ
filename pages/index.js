@@ -21,7 +21,7 @@ export default function Home({ token }) {
       <div className="w-10/12">
         <div className="p-4 text-gray-500">
           <DndProvider backend={HTML5Backend}>
-            {user && <Dropzone />}
+            <Dropzone />
             <ItemContainer>
               <Item
                 subtitle="Adidas"
