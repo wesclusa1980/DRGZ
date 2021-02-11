@@ -1,14 +1,13 @@
 //from https://tailwindcomponents.com/component/sidebar-1
 import React from "react";
-import HomeIcon from "../components/icons/HomeIcon";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import useSWR from "swr";
 
 const SidebarItem = (props) => {
   return (
     <li>
-      <a
-        href="#"
-        class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:shadow-outline"
-      >
+      <a class="flex items-center space-x-3 text-gray-700 p-2 rounded-md font-medium hover:bg-gray-200 focus:shadow-outline">
         {props.children}
       </a>
     </li>
@@ -16,12 +15,28 @@ const SidebarItem = (props) => {
 };
 
 const Sidebar = (props) => {
+  const router = useRouter();
+
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+
+  const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
+
+  const logout = async () => {
+    const res = await fetch("/api/logout");
+    if (res.ok) {
+      mutateUser(null);
+      router.push("/");
+    }
+  };
+
   return (
     <div>
       <ul className="flex flex-col space-y-2 text-sm items-end">
         <span class="font-semibold p-2 text-2xl">DRGZ</span>
         <SidebarItem>
-          <span>Home</span>
+          <Link href="/">
+            <span>Home</span>
+          </Link>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -37,6 +52,68 @@ const Sidebar = (props) => {
             />
           </svg>
         </SidebarItem>
+        {!user ? (
+          <>
+            <SidebarItem>
+              <Link href="/signup">
+                <span>Sign up</span>
+              </Link>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="text-gray-500 h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+            </SidebarItem>
+            <SidebarItem>
+              <Link href="/signin">
+                <span>Sign in</span>
+              </Link>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                class="text-gray-500 h-6 w-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                />
+              </svg>
+            </SidebarItem>
+          </>
+        ) : (
+          <SidebarItem>
+            <Link href="/signin">
+              <span>Log out</span>
+            </Link>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              class="text-gray-500 h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              />
+            </svg>
+          </SidebarItem>
+        )}
       </ul>
     </div>
   );
