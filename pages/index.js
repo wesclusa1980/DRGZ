@@ -13,13 +13,13 @@ export default function Home({ token }) {
 
   const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
   return (
-    <div class="flex flex-wrap bg-gray-100 w-full h-screen">
-      <div class="w-2/12 bg-white rounded p-3 shadow-lg">
+    <div className="flex flex-wrap bg-gray-100 w-full h-screen">
+      <div className="w-2/12 bg-white rounded p-3 shadow-lg">
         <Sidebar />
       </div>
 
-      <div class="w-10/12">
-        <div class="p-4 text-gray-500">
+      <div className="w-10/12">
+        <div className="p-4 text-gray-500">
           <DndProvider backend={HTML5Backend}>
             {user && <Dropzone />}
             <ItemContainer>

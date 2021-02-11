@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start"
   },
   "dependencies": {
+    "@hashgraph/sdk": "^1.4.6",
     "autoprefixer": "^10.2.4",
     "classnames": "^2.2.6",
     "cookie": "^0.4.1",
+    "dotenv": "^8.2.0",
     "faunadb": "^4.0.3",
     "graphql-request": "^3.4.0",
     "next": "10.0.6",
