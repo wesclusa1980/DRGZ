@@ -9,7 +9,7 @@ The typical online checkout process involves multiple inputs and interactions. W
 ## Why?
 *The term "finality of payment" refers to the moment at which funds, recently transferred from one account to another, officially become the legal property of the receiving party.*
 
-When people transact, they want to be confident that once their transactions go through, that the transactions cannot be arbitrarily changed or reversed.
+When people transact, they want to be confident that once their transactions go through, that the transactions cannot be altered or reversed.
 
 ## System Overview
 
