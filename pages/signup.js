@@ -7,7 +7,10 @@ import Item from "../components/Item";
 import ItemContainer from "../components/ItemContainer";
 import React, { useState } from "react";
 
+import { useRouter } from "next/router";
+
 export default function Signup() {
+  const router = useRouter();
   const [formData, setFormData] = useState({
     loading: false,
     name: "",
@@ -25,8 +28,6 @@ export default function Signup() {
     event.preventDefault();
 
     if (errorMessage) setErrorMessage("");
-
-    console.log(name, email, password);
 
     try {
       const res = await fetch("/api/signup", {
@@ -72,7 +73,7 @@ export default function Signup() {
                   Sign up to your account
                 </h2>
               </div>
-              <form class="mt-8 space-y-6" action="#" method="POST">
+              <form class="mt-8 space-y-6" onSubmit={onSubmit} method="POST">
                 <input type="hidden" name="remember" value="true" />
                 <div class="rounded-md shadow-sm -space-y-px">
                   <div>
@@ -149,6 +150,7 @@ export default function Signup() {
                   </button>
                 </div>
               </form>
+              {errorMessage}
             </div>
           </div>
         </div>

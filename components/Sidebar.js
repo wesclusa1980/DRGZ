@@ -95,9 +95,9 @@ const Sidebar = (props) => {
           </>
         ) : (
           <SidebarItem>
-            <Link href="/signin">
+            <button onClick={logout}>
               <span>Log out</span>
-            </Link>
+            </button>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

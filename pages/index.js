@@ -6,8 +6,12 @@ import Dropzone from "../components/Dropzone";
 import Item from "../components/Item";
 import ItemContainer from "../components/ItemContainer";
 import { getAuthCookie } from "../utils/auth-cookies";
+import useSWR from "swr";
 
 export default function Home({ token }) {
+  const fetcher = (url) => fetch(url).then((r) => r.json());
+
+  const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
   return (
     <div class="flex flex-wrap bg-gray-100 w-full h-screen">
       <div class="w-2/12 bg-white rounded p-3 shadow-lg">
@@ -17,7 +21,7 @@ export default function Home({ token }) {
       <div class="w-10/12">
         <div class="p-4 text-gray-500">
           <DndProvider backend={HTML5Backend}>
-            <Dropzone />
+            {user && <Dropzone />}
             <ItemContainer>
               <Item
                 subtitle="Adidas"
