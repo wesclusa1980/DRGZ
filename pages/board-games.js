@@ -24,35 +24,31 @@ export default function BoardGames({ token }) {
           <Dropzone />
           </div>
         </div> */}
-          <a className=" mt-8 text-center text-gray-600 tracking-wide font-bold text-3xl align-baseline focus:outline-none ">
-            Board Games
-          </a>
-
           <div className="flex-1 overflow-y-scroll">
             <ItemContainer>
               <Item
-                subtitle="Adidas"
-                name="Yeezys"
+                subtitle="Scrabble"
+                name="Make words!"
                 price="90.32"
-                imgPath="/boosts.webp"
+                imgPath="https://images.unsplash.com/photo-1591635566278-10dca0ca76ee?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
               />
               <Item
-                subtitle="Adidas"
-                name="Yeezys"
+                subtitle="Jenga"
+                name="Don't tip the tower!"
                 price="90.32"
-                imgPath="/boosts.webp"
+                imgPath="https://images.unsplash.com/photo-1489850846882-35ef10a4b480?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80"
               />
               <Item
-                subtitle="Adidas"
-                name="Yeezys"
+                subtitle="Strategy"
+                name="Go to war!"
                 price="90.32"
-                imgPath="/boosts.webp"
+                imgPath="https://images.unsplash.com/photo-1611891487122-207579d67d98?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
               />
               <Item
-                subtitle="Adidas"
-                name="Yeezys"
+                subtitle="Domino"
+                name="You win this game!"
                 price="90.32"
-                imgPath="/boosts.webp"
+                imgPath="https://images.unsplash.com/photo-1566694271453-390536dd1f0d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
               />
             </ItemContainer>
           </div>
