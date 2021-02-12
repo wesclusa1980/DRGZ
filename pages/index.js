@@ -31,7 +31,7 @@ export default function Home({ token }) {
           </div>
         </div> */}
 
-            <div className="flex-1 overflow-y-scroll">
+            <div className="flex-1 overflow-y-scroll pt-10">
               <ItemContainer>
                 <Item
                   subtitle="Adidas"

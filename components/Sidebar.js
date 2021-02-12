@@ -134,7 +134,7 @@ const Sidebar = (props) => {
                   </span>
                 </div>
               </div> */}
-              <div class="flex w-full justify-between hover:bg-gray-100 focus:shadow-outline p-1 mb-2 rounded-md items-center">
+              <div class="flex w-full justify-between hover:bg-white focus:shadow-outline p-2 mb-2 rounded-md items-center">
                 <div class="flex-1 font-semibold text-lgtracking-wide">
                   {user ? user.name : "Roshan"}
                 </div>
@@ -145,12 +145,15 @@ const Sidebar = (props) => {
             </Link>
             <div className="flex flex-col mb-4 space-y-2">
               <Link href="/account">
-                <button className="flex-1 bg-green-100 border-gray-500 rounded-md font-bold text-lg p-3 focus:shadow-outline transform duration-50 hover:scale-105 ">
+                <button className="flex-1 bg-green-100 hover:bg-green-200 border-gray-500 rounded-md font-bold text-lg p-3 focus:shadow-outline">
+                  <div className="flex items-center justify-center">
                   <span className="text-green-900 ">Get DRGZ</span>
+                  <img src="/token3.svg" className="h-6 w-6 mx-2"/>
+                  </div>
                 </button>
               </Link>
               <button
-                className="flex-1 rounded-md font-medium p-3 bg-gray hover:bg-white focus:shadow-outline transform duration-50 hover:scale-105"
+                className="flex-1 rounded-md font-medium p-3 bg-gray hover:bg-white focus:shadow-outline"
                 onClick={logout}
               >
                 <span>Sign Out</span>
