@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDrop } from "react-dnd";
 var classNames = require("classnames");
-import ReactTooltip from 'react-tooltip';
+import ReactTooltip from "react-tooltip";
 
 import useSWR from "swr";
 
 import Link from "next/link";
 
-const Dropzone = ({user, balance}) => {
+const Dropzone = ({ user, balance }) => {
   const fetcher = (url) => fetch(url).then((r) => r.json());
   const [items, setItems] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  // const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
+  //const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
 
   const [{ canDrop, isOver, handlerId }, drop] = useDrop({
     accept: "item",
@@ -46,6 +46,7 @@ const Dropzone = ({user, balance}) => {
     "flex items-center justify-center",
     {
       "border-2 bg-white": !canDrop,
+      "border-2 bg-offwhite": !canDrop && !user,
       "border-4 animate-pulse bg-white": canDrop,
       "rounded-full": !(canDrop && isOver),
       "border-blue-bright border-4 rounded-lg": canDrop && isOver,
@@ -74,14 +75,24 @@ const Dropzone = ({user, balance}) => {
   const defaultDropText =
     user && balance ? (
       <p>
-        With {" " + balance} <u data-tip="The DRGZ marketplace has its own currency and it's called DRGZ!"> DRGZ</u> available you can drag & drop a product here and it
-        will be purchased instantly!
+        With {" " + balance}{" "}
+        <u data-tip="The DRGZ marketplace has its own currency and it's called DRGZ!">
+          {" "}
+          DRGZ
+        </u>{" "}
+        available you can drag & drop a product here and it will be purchased
+        instantly!
       </p>
     ) : (
       <p>
         When you have{" "}
         <Link href={user && !balance ? "/account" : "/signup"}>
-          <u data-tip="The DRGZ marketplace has its own currency and it's called DRGZ!">DRGZ</u>
+          <u
+            data-class="flex-1 rounded-md font-medium p-3 bg-gray "
+            data-tip="The DRGZ marketplace has its own currency and it's called DRGZ!"
+          >
+            DRGZ
+          </u>
         </Link>{" "}
         you can drag & drop a product here and it will be purchased instantly!
       </p>

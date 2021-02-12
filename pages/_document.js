@@ -11,6 +11,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <script src="https://unpkg.com/feather-icons"></script>
+          <link rel="shortcut icon" href="/token3.ico" />
         </Head>
         <body>
           <Main />

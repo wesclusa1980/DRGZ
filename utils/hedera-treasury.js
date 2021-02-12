@@ -1,10 +1,6 @@
-require('dotenv').config()
+require("dotenv").config();
 
-const {
-    Client,
-    PrivateKey,
-    AccountId,
-} = require("@hashgraph/sdk");
+const { Client, PrivateKey, AccountId } = require("@hashgraph/sdk");
 
 // console.log("PK", process.env.PRIVATE_KEY)
 
