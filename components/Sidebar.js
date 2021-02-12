@@ -1,23 +1,23 @@
 //from https://tailwindcomponents.com/component/sidebar-1
-import React, {useState, useEffect, useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Dropzone from "./Dropzone";
 import axios from "axios";
-import {ActionContext} from "../context/GlobalState";
+import { ActionContext } from "../context/GlobalState";
 
 const SidebarItem = (props) => {
   return (
     <Link href={props.href}>
-    <a
-      class={
-        "text-lg font-semibold flex items-center space-x-3 justify-between p-1 rounded-md hover:bg-white focus:shadow-outline " +
-        props.className
-      }
-    >
-      {props.children}
-    </a>
+      <a
+        class={
+          "text-lg font-semibold flex items-center space-x-3 justify-between p-1 rounded-md hover:bg-white focus:shadow-outline " +
+          props.className
+        }
+      >
+        {props.children}
+      </a>
     </Link>
   );
 };
@@ -25,7 +25,7 @@ const SidebarItem = (props) => {
 const Sidebar = (props) => {
   const router = useRouter();
   const fetcher = (url) => fetch(url).then((r) => r.json());
-  const {balance, dispatch} = useContext(ActionContext);
+  const { balance, dispatch } = useContext(ActionContext);
   const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
 
   const logout = async () => {
@@ -46,8 +46,8 @@ const Sidebar = (props) => {
 
       dispatch({
         type: "SET_BALANCE",
-        payload: res.data.balance
-      })
+        payload: res.data.balance,
+      });
 
       // if (res.ok) {
       //   console.log("REsponse", res);
@@ -82,18 +82,10 @@ const Sidebar = (props) => {
           </div>
         </div>
         <div className="flex flex-col pl-12">
-          <SidebarItem href="/">
-            All
-          </SidebarItem>
-          <SidebarItem href="/sneakers">
-            Sneakers
-          </SidebarItem>
-          <SidebarItem href="/books">
-            Books
-          </SidebarItem>
-          <SidebarItem href="/board-games">
-            Board Games
-          </SidebarItem>
+          <SidebarItem href="/">All</SidebarItem>
+          <SidebarItem href="/sneakers">Sneakers</SidebarItem>
+          <SidebarItem href="/books">Books</SidebarItem>
+          <SidebarItem href="/board-games">Board Games</SidebarItem>
           {/* <SidebarItem href="/">
             <a className="flex align-text-bottom">
               <span className="px-2 pt-1">Home</span>
@@ -116,8 +108,10 @@ const Sidebar = (props) => {
           </SidebarItem> */}
         </div>
       </div>
-      
-      {["/", "/books", "/sneakers", "/board-games"].includes(router.pathname) && (
+
+      {["/", "/books", "/sneakers", "/board-games"].includes(
+        router.pathname
+      ) && (
         <div className="flex w-full justify-center">
           <Dropzone balance={balance} user={user}></Dropzone>
         </div>
@@ -159,23 +153,22 @@ const Sidebar = (props) => {
                 className="flex-1 rounded-md font-medium p-3 bg-gray hover:bg-white focus:shadow-outline transform duration-50 hover:scale-105"
                 onClick={logout}
               >
-                <span>Log Out</span>
+                <span>Sign Out</span>
               </button>
             </div>
           </div>
         ) : (
           <div className="flex flex-col mb-4 space-y-2 w-full">
-          <Link href="/signup">
+            <Link href="/signup">
               <button className="flex-1 rounded-md font-medium p-3 bg-green-100 hover:bg-green-200 focus:shadow-outline">
                 <span className="text-green-900 ">Create An Account</span>
               </button>
             </Link>
             <Link href="/signin">
-              <button className="flex-1 rounded-md font-medium p-3 bg-gray-200 hover:bg-green-200 focus:shadow-outline">
+              <button className="flex-1 rounded-md font-medium p-3 bg-gray hover:bg-green-200 focus:shadow-outline">
                 <span>Sign In</span>
               </button>
             </Link>
-            
           </div>
         )}
       </div>
