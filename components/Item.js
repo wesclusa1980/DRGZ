@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useDrag } from "react-dnd";
+import { getEmptyImage } from 'react-dnd-html5-backend';
 var classNames = require("classnames");
 
 const Item = ({ name, imgPath, price, subtitle }) => {
-  const [{ isDragging, handlerId }, drag] = useDrag({
-    item: { name, price, imgPath, type: "item" },
+  const [{ isDragging, handlerId }, drag, dragPreview] = useDrag({
+    item: { name, price, imgPath, subtitle, type: "item" },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
       if (item && dropResult) {
@@ -16,15 +17,23 @@ const Item = ({ name, imgPath, price, subtitle }) => {
       handlerId: monitor.getHandlerId(),
     }),
   });
+
+  useEffect(() => {
+    dragPreview(getEmptyImage(), { captureDraggingState: true });
+}, []);
+
   var itemClass = classNames(
     "max-w-xs",
     "rounded-lg",
     "overflow-hidden",
-
     "transform",
-    "duration-200",
     "scale-95",
-    "hover:scale-100"
+    {
+      "cursor-grab":!isDragging,
+      "opacity-50 shadow":isDragging,
+      // "border border-green-900":isDragging
+    }
+    
   );
   return (
     <div ref={drag} data-handler-id={handlerId} class={itemClass}>

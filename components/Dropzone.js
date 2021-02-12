@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { useDrop } from "react-dnd";
 var classNames = require("classnames");
+import ReactTooltip from 'react-tooltip';
+
 import useSWR from "swr";
 
 import Link from "next/link";
 
-const Dropzone = () => {
+const Dropzone = ({user, balance}) => {
   const fetcher = (url) => fetch(url).then((r) => r.json());
   const [items, setItems] = useState([]);
   const [isProcessing, setIsProcessing] = useState(false);
 
-  const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
+  // const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
 
   const [{ canDrop, isOver, handlerId }, drop] = useDrop({
     accept: "item",
@@ -70,16 +72,16 @@ const Dropzone = () => {
   });
 
   const defaultDropText =
-    user && user.drgz ? (
+    user && balance ? (
       <p>
-        With {user.drgz} available you can drag & drop a product here and it
+        With {" " + balance} <u data-tip="The DRGZ marketplace has its own currency and it's called DRGZ!"> DRGZ</u> available you can drag & drop a product here and it
         will be purchased instantly!
       </p>
     ) : (
       <p>
         When you have{" "}
-        <Link href={user && !user.drgz ? "/account" : "/signup"}>
-          <u>DRGZ</u>
+        <Link href={user && !balance ? "/account" : "/signup"}>
+          <u data-tip="The DRGZ marketplace has its own currency and it's called DRGZ!">DRGZ</u>
         </Link>{" "}
         you can drag & drop a product here and it will be purchased instantly!
       </p>
@@ -87,6 +89,7 @@ const Dropzone = () => {
 
   return (
     <div ref={drop} data-handler-id={handlerId} className="flex items-center">
+      <ReactTooltip />
       <fieldset
         class={items.length === 0 ? defaultBorderClass : filledBorderClass}
       >

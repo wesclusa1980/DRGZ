@@ -112,9 +112,10 @@ const Sidebar = (props) => {
           </SidebarItem> */}
         </div>
       </div>
-      {router.pathname === "/" && (
+      
+      {["/", "books", "/sneakers", "board-games"].includes(router.pathname) && (
         <div className="flex w-full justify-center">
-          <Dropzone></Dropzone>
+          <Dropzone balance={balance} user={user}></Dropzone>
         </div>
       )}
       <div className="flex w-full justify-center align-middle">

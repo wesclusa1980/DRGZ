@@ -6,6 +6,7 @@ import Dropzone from "../components/Dropzone";
 import Item from "../components/Item";
 import ItemContainer from "../components/ItemContainer";
 import { getAuthCookie } from "../utils/auth-cookies";
+import CustomDragLayer from '../components/CustomDragLayer'
 import useSWR from "swr";
 import {accountId, accountKey} from "../utils/hedera-treasury";
 export default function Home({ token }) {
@@ -18,6 +19,7 @@ export default function Home({ token }) {
         <title>DRGZ | Home</title>
       </Head>
       <DndProvider backend={HTML5Backend}>
+        <CustomDragLayer/>
         <BaseTemplate>
           <div className="flex-1 flex flex-col">
             {/* <div className="flex align-items-center justify-between w-full p-2">

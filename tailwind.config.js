@@ -8,6 +8,10 @@ module.exports = {
         blue: {
           'bright':'#1DA1F2'
         }
+      },
+      cursor:{
+        grab: 'grab',
+        grabbing: 'grabbing'
       }
     },
   },
