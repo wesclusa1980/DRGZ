@@ -9,7 +9,7 @@ import {ActionContext} from "../context/GlobalState";
 const Item = ({ name, imgPath, price, subtitle, user }) => {
   const {dispatch, balance} = useContext(ActionContext);
   const [{ isDragging, handlerId }, drag, dragPreview] = useDrag({
-    item: { name, price, imgPath, subtitle, type: "item" },
+    item: { name, price, imgPath, user, subtitle, type: "item" },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
       if (item && dropResult && (Number(item.price) < Number(balance))) {

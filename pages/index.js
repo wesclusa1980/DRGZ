@@ -6,9 +6,9 @@ import Dropzone from "../components/Dropzone";
 import Item from "../components/Item";
 import ItemContainer from "../components/ItemContainer";
 import { getAuthCookie } from "../utils/auth-cookies";
-import CustomDragLayer from '../components/CustomDragLayer'
+import CustomDragLayer from "../components/CustomDragLayer";
 import useSWR from "swr";
-import {accountId, accountKey} from "../utils/hedera-treasury";
+import { accountId, accountKey } from "../utils/hedera-treasury";
 export default function Home({ token }) {
   const fetcher = (url) => fetch(url).then((r) => r.json());
 
@@ -19,9 +19,9 @@ export default function Home({ token }) {
         <title>DRGZ | Home</title>
       </Head>
       <DndProvider backend={HTML5Backend}>
-        <CustomDragLayer/>
+        <CustomDragLayer />
         <BaseTemplate>
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col pt-1">
             {/* <div className="flex align-items-center justify-between w-full p-2">
           <div className="flex items-center text-black font-bold text-3xl px-2">
           Buying and selling is now zero effort
@@ -30,8 +30,18 @@ export default function Home({ token }) {
           <Dropzone />
           </div>
         </div> */}
+            <div className="flex justify-end p-2 pt-6 pr-4 border-b-2">
+              <div className="flex">
+                <button
+                  data-tip="Coming soon!"
+                  className="flex-1 flex bg-green-100 hover:bg-green-200 rounded-md font-bold p-2 focus:shadow-outline"
+                >
+                  <span className="text-green-900 ">+ Create New Listing</span>
+                </button>
+              </div>
+            </div>
 
-            <div className="flex-1 overflow-y-scroll pt-10">
+            <div className="flex-1 overflow-y-scroll -mb-2">
               <ItemContainer>
                 <Item
                   user={user}

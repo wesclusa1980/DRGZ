@@ -45,7 +45,7 @@ const Dropzone = ({ user, balance }) => {
     "transition-all duration-1000 ease-in-out",
     "flex items-center justify-center",
     {
-      "border-2 bg-white": !canDrop,
+      "border-2 bg-white": !canDrop && user,
       "border-2 bg-offwhite": !canDrop && !user,
       "border-4 animate-pulse bg-white": canDrop,
       "rounded-full": !(canDrop && isOver),

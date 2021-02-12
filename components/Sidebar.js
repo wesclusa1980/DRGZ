@@ -12,11 +12,13 @@ const SidebarItem = (props) => {
     <Link href={props.href}>
       <a
         class={
-          "text-lg font-semibold flex items-center space-x-3 justify-between p-1 rounded-md hover:bg-white focus:shadow-outline " +
+          "text-lg font-semibold flex justify-end text-right space-x-3 p-1 rounded-md hover:bg-white focus:shadow-outline " +
           props.className
         }
       >
+        <div className="flex-end">
         {props.children}
+        </div>
       </a>
     </Link>
   );
@@ -34,6 +36,7 @@ const Sidebar = (props) => {
       mutateUser(null);
       router.push("/");
     }
+    window.location.reload();
   };
 
   const getBalance = async () => {
@@ -145,7 +148,7 @@ const Sidebar = (props) => {
             </Link>
             <div className="flex flex-col mb-4 space-y-2">
               <Link href="/account">
-                <button className="flex-1 bg-green-100 hover:bg-green-200 border-gray-500 rounded-md font-bold text-lg p-3 focus:shadow-outline">
+                <button className="flex-1 bg-green-100 hover:bg-green-200 rounded-md font-bold text-lg p-3 focus:shadow-outline">
                   <div className="flex items-center justify-center">
                   <span className="text-green-900 ">Get DRGZ</span>
                   <img src="/token3.svg" className="h-6 w-6 mx-2"/>
@@ -163,7 +166,7 @@ const Sidebar = (props) => {
         ) : (
           <div className="flex flex-col mb-4 space-y-2 w-full">
             <Link href="/signup">
-              <button className="flex-1 rounded-md font-medium p-3 bg-green-100 hover:bg-green-200 focus:shadow-outline">
+              <button className="flex-1 bg-green-100 hover:bg-green-200 rounded-md font-bold text-lg p-3 focus:shadow-outline">
                 <span className="text-green-900 ">Create Account</span>
               </button>
             </Link>
