@@ -1,18 +1,19 @@
 import BaseTemplate from "../components/BaseTemplate";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import useSWR from "swr";
 import { PrivateKey } from "@hashgraph/sdk";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { PaymentInputsWrapper, usePaymentInputs } from "react-payment-inputs";
 import images from "react-payment-inputs/images";
+import {ActionContext} from "../context/GlobalState";
+import {GlobalState} from "../context/GlobalState";
 
 export default function Account() {
   const fetcher = (url) => fetch(url).then((r) => r.json());
 
-  const [balance, setBalance] = useState();
   const [drgzPurchaseAmount, setDrgzPurchaseAmount] = useState();
-
+  const {balance, dispatch} = useContext(ActionContext);
   const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
 
   console.log(user);
@@ -33,9 +34,10 @@ export default function Account() {
         },
       });
 
-      // console.log("REsponse", res);
-
-      setBalance(res.data.balance);
+      dispatch({
+        type: "SET_BALANCE",
+        payload: res.data.balance
+      })
 
       // if (res.ok) {
       //   console.log("REsponse", res);
@@ -64,6 +66,7 @@ export default function Account() {
 
     console.log("Response", res);
     getBalance();
+    setDrgzPurchaseAmount("");
   };
 
   useEffect(() => {
@@ -73,7 +76,8 @@ export default function Account() {
   const [close, setIsClose] = useState(false);
 
   return (
-    <BaseTemplate>
+    // <GlobalState>
+    <BaseTemplate >
       <div className="flex-1 p-4 text-gray-500 w-full">
         {!close && (
           <div class="bg-green-100">
@@ -163,18 +167,6 @@ export default function Account() {
                     DRGZ Balance
                   </dt>
                   <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    {/* <button
-                      className="bg-blue-bright hover:bg-blue-600 p-4 rounded-lg"
-                      onClick={() => topUp(10)}
-                    >
-                      10 for $10
-                    </button>
-                    <button
-                      className="bg-blue-bright hover:bg-blue-600 p-4 rounded-lg"
-                      onClick={() => topUp(5)}
-                    >
-                      5 for $5
-                    </button> */}
                     {balance}
                   </dd>
                 </div>
@@ -204,7 +196,7 @@ export default function Account() {
                         />
                       </div>
                       <div className="flex flex-col px-2">
-                        <div>Payment details:</div>
+                        {/* <div>Payment details:</div>
                         <div
                           className={`flex bg-white border p-2 ${
                             meta.isTouched && meta.error
@@ -232,11 +224,12 @@ export default function Account() {
                           {meta.isTouched && meta.error && (
                             <span>Error: {meta.error}</span>
                           )}
-                        </div>
+                        </div> */}
                         <div className="flex p-2 mt-2 justify-end w-full">
                           <button
                             className="rounded-md font-medium p-3 bg-gray-200 hover:bg-gray-300 focus:shadow-outline"
                             onClick={() => topUp(drgzPurchaseAmount)}
+                            disabled={drgzPurchaseAmount ? false : true}
                           >
                             Purchase DRGZ
                           </button>
@@ -251,5 +244,6 @@ export default function Account() {
         </div>
       </div>
     </BaseTemplate>
+    // </GlobalState>
   );
 }

@@ -1,9 +1,11 @@
 //from https://tailwindcomponents.com/component/sidebar-1
-import React from "react";
+import React, {useState, useEffect, useContext} from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
 import Dropzone from "./Dropzone";
+import axios from "axios";
+import {ActionContext} from "../context/GlobalState";
 
 const SidebarItem = (props) => {
   return (
@@ -20,9 +22,8 @@ const SidebarItem = (props) => {
 
 const Sidebar = (props) => {
   const router = useRouter();
-
   const fetcher = (url) => fetch(url).then((r) => r.json());
-
+  const {balance, dispatch} = useContext(ActionContext);
   const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
 
   const logout = async () => {
@@ -32,6 +33,36 @@ const Sidebar = (props) => {
       router.push("/");
     }
   };
+
+  const getBalance = async () => {
+    try {
+      const res = await axios.get(`/api/getbalance/${user.hederaAccountID}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      dispatch({
+        type: "SET_BALANCE",
+        payload: res.data.balance
+      })
+
+      // if (res.ok) {
+      //   console.log("REsponse", res);
+      // } else {
+      //   throw new Error(await res.text());
+      // }
+    } catch (error) {
+      console.error(error);
+      // setErrorMessage(error.message);
+    }
+  };
+
+  useEffect(() => {
+    user && getBalance();
+  }, [user]);
+
+  // console.log(balance)
 
   return (
     <div className="flex flex-col p-4 text-sm h-screen justify-between">
@@ -87,7 +118,7 @@ const Sidebar = (props) => {
         </div>
       )}
       <div className="flex w-full justify-center align-middle">
-        {user || true ? (
+        {user ? (
           <div class="w-full">
             <Link href="/account">
               {/* <div class="flex w-full items-center rounded-md space-x-4 p-1 mb-2 justify-between text-right hover:bg-gray-100 focus:shadow-outline">
@@ -109,7 +140,7 @@ const Sidebar = (props) => {
                   {user ? user.name : "Roshan"}
                 </div>
                 <div class="flex-1 text-sm tracking-wide text-gray-600 text-right">
-                  {user && user.drgz ? "Balance: " + user.drgz : "Balance: 0"}
+                  {balance}
                 </div>
               </div>
             </Link>
