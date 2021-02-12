@@ -41,7 +41,7 @@ export default function Home({ token }) {
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-scroll -mb-2">
+            <div className="flex-1 overflow-y-scroll">
               <ItemContainer>
                 <Item
                   user={user}

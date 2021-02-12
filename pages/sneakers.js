@@ -17,8 +17,8 @@ export default function Sneakers({ token }) {
     <DndProvider backend={HTML5Backend}>
       <CustomDragLayer/>
       <BaseTemplate>
-        <div className="flex-1 flex flex-col">
-          {/* <div className="flex align-items-center justify-between w-full p-2">
+      <div className="flex-1 flex flex-col pt-1">
+            {/* <div className="flex align-items-center justify-between w-full p-2">
           <div className="flex items-center text-black font-bold text-3xl px-2">
           Buying and selling is now zero effort
           </div>
@@ -26,30 +26,41 @@ export default function Sneakers({ token }) {
           <Dropzone />
           </div>
         </div> */}
-          <div className="flex-1 overflow-y-scroll">
+            <div className="flex justify-end p-3 pt-6 pr-4">
+              <div className="flex">
+                <button
+                  data-tip="Coming soon!"
+                  className="flex-1 flex bg-green-100 hover:bg-green-200 rounded-md font-bold p-2 focus:shadow-outline"
+                >
+                  <span className="text-green-900 ">+ Create New Listing</span>
+                </button>
+              </div>
+            </div>
+
+            <div className="flex-1 overflow-y-scroll">
             <ItemContainer>
               <Item
                 subtitle="Adidas"
                 name="Yeezys"
-                price="90.32"
+                price="50"
                 imgPath="/boosts.webp"
               />
               <Item
                 subtitle="Nike"
                 name="Red"
-                price="90.32"
+                price="50"
                 imgPath="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
               />
               <Item
                 subtitle="Adidas"
                 name="Hype"
-                price="90.32"
+                price="50"
                 imgPath="https://images.unsplash.com/photo-1520256862855-398228c41684?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
               />
               <Item
                 subtitle="Adidas"
                 name="RBW"
-                price="90.32"
+                price="50"
                 imgPath="https://images.unsplash.com/photo-1552346154-21d32810aba3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
               />
             </ItemContainer>
