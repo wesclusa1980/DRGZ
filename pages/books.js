@@ -7,8 +7,8 @@ import Item from "../components/Item";
 import ItemContainer from "../components/ItemContainer";
 import { getAuthCookie } from "../utils/auth-cookies";
 import useSWR from "swr";
-import {accountId, accountKey} from "../utils/hedera-treasury";
-export default function Home({ token }) {
+
+export default function Books({ token }) {
   const fetcher = (url) => fetch(url).then((r) => r.json());
 
   const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
@@ -24,6 +24,9 @@ export default function Home({ token }) {
           <Dropzone />
           </div>
         </div> */}
+          <a className=" mt-8 text-center text-gray-600 tracking-wide font-bold text-3xl align-baseline focus:outline-none ">
+            Books
+          </a>
 
           <div className="flex-1 overflow-y-scroll">
             <ItemContainer>
