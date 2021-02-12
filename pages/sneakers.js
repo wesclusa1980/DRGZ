@@ -24,10 +24,6 @@ export default function Sneakers({ token }) {
           <Dropzone />
           </div>
         </div> */}
-          <a className=" mt-8 text-center text-gray-600 tracking-wide font-bold text-3xl align-baseline focus:outline-none ">
-            Sneakers
-          </a>
-
           <div className="flex-1 overflow-y-scroll">
             <ItemContainer>
               <Item
@@ -37,22 +33,22 @@ export default function Sneakers({ token }) {
                 imgPath="/boosts.webp"
               />
               <Item
-                subtitle="Adidas"
-                name="Yeezys"
+                subtitle="Nike"
+                name="Red"
                 price="90.32"
-                imgPath="/boosts.webp"
+                imgPath="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
               />
               <Item
                 subtitle="Adidas"
-                name="Yeezys"
+                name="Hype"
                 price="90.32"
-                imgPath="/boosts.webp"
+                imgPath="https://images.unsplash.com/photo-1520256862855-398228c41684?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
               />
               <Item
                 subtitle="Adidas"
-                name="Yeezys"
+                name="Red, Black and White"
                 price="90.32"
-                imgPath="/boosts.webp"
+                imgPath="https://images.unsplash.com/photo-1552346154-21d32810aba3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
               />
             </ItemContainer>
           </div>

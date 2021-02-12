@@ -9,7 +9,7 @@ const SidebarItem = (props) => {
   return (
     <a
       class={
-        "flex items-center space-x-3 justify-between text-gray-700 p-1 rounded-md hover:bg-gray-200 focus:shadow-outline " +
+        "text-lg font-semibold flex items-center space-x-3 justify-between p-1 rounded-md hover:bg-gray-200 focus:shadow-outline " +
         props.className
       }
     >
@@ -49,7 +49,7 @@ const Sidebar = (props) => {
           </div>
         </div>
         <div className="flex flex-col pl-12">
-          <div className="text-lg font-semibold pt-4">All Categories</div>
+          <div className="text-lg font-semibold pt-3 p-1">All</div>
           <SidebarItem>
             <Link href="/sneakers">Sneakers</Link>
           </SidebarItem>
