@@ -165,7 +165,7 @@ const Sidebar = (props) => {
               </button>
             </Link>
             <Link href="/signin">
-              <button className="flex-1 rounded-md font-medium p-3 bg-gray hover:bg-green-200 focus:shadow-outline">
+              <button className="flex-1 rounded-md font-medium p-3 bg-gray hover:bg-white focus:shadow-outline">
                 <span>Sign In</span>
               </button>
             </Link>
