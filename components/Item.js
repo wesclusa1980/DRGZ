@@ -7,14 +7,14 @@ import axios from "axios";
 import {ActionContext} from "../context/GlobalState";
 
 const Item = ({ name, imgPath, price, subtitle, user }) => {
-  const {dispatch} = useContext(ActionContext);
+  const {dispatch, balance} = useContext(ActionContext);
   const [{ isDragging, handlerId }, drag, dragPreview] = useDrag({
     item: { name, price, imgPath, subtitle, type: "item" },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
-      if (item && dropResult) {
+      if (item && dropResult && (Number(item.price) < Number(balance))) {
         dropResult.addItem(item.imgPath, name);
-        transfer('2');
+        transfer(item.price);
       }
     },
     collect: (monitor) => ({
@@ -90,7 +90,7 @@ const Item = ({ name, imgPath, price, subtitle, user }) => {
       <div class="px-6 py-4 text-center text-gray-900 bg-white">
         <div class="text-sm">{subtitle}</div>
         <div class="font-bold text-xl mb-1">{name}</div>
-        <div class="font-bold text-xl mb-1">{`$${price}`}</div>
+        <div class="font-bold text-xl mb-1">{`${price} DRGZ`}</div>
       </div>
       {/* below is "tags" for card */}
       {/* <div class="px-6 pt-4 pb-2">

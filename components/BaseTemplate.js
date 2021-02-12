@@ -1,10 +1,8 @@
 import React from "react";
 import Sidebar from "../components/Sidebar";
-import {GlobalState} from "../context/GlobalState";
 
 const BaseTemplate = (props) => {
   return (
-    // <GlobalState>
         <div className="flex bg-offwhite w-full h-screen">
           <div className="w-3/12 bg-gray rounded">
             <Sidebar/>
@@ -14,7 +12,6 @@ const BaseTemplate = (props) => {
             {props.children}
           </div>
         </div>
-    // </GlobalState>
   );
 };
 
