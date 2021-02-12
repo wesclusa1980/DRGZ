@@ -9,7 +9,7 @@ const SidebarItem = (props) => {
   return (
     <a
       class={
-        "text-lg font-semibold flex items-center space-x-3 justify-between p-1 rounded-md hover:bg-gray-200 focus:shadow-outline " +
+        "text-lg font-semibold flex items-center space-x-3 justify-between p-1 rounded-md hover:bg-white focus:shadow-outline " +
         props.className
       }
     >
@@ -120,7 +120,7 @@ const Sidebar = (props) => {
                 </button>
               </Link>
               <button
-                className="flex-1 rounded-md font-medium p-3 bg-offwhite focus:shadow-outline transform duration-50 hover:scale-105"
+                className="flex-1 rounded-md font-medium p-3 bg-white focus:shadow-outline transform duration-50 hover:scale-105"
                 onClick={logout}
               >
                 <span>Log Out</span>
