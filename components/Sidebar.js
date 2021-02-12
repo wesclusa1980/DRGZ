@@ -9,6 +9,7 @@ import {ActionContext} from "../context/GlobalState";
 
 const SidebarItem = (props) => {
   return (
+    <Link href={props.href}>
     <a
       class={
         "text-lg font-semibold flex items-center space-x-3 justify-between p-1 rounded-md hover:bg-white focus:shadow-outline " +
@@ -17,6 +18,7 @@ const SidebarItem = (props) => {
     >
       {props.children}
     </a>
+    </Link>
   );
 };
 
@@ -80,15 +82,17 @@ const Sidebar = (props) => {
           </div>
         </div>
         <div className="flex flex-col pl-12">
-          <div className="text-lg font-semibold pt-3 p-1">All</div>
-          <SidebarItem>
-            <Link href="/sneakers">Sneakers</Link>
+          <SidebarItem href="/">
+            All
           </SidebarItem>
-          <SidebarItem>
-            <Link href="/books">Books</Link>
+          <SidebarItem href="/sneakers">
+            Sneakers
           </SidebarItem>
-          <SidebarItem>
-            <Link href="/board-games">Board Games</Link>
+          <SidebarItem href="/books">
+            Books
+          </SidebarItem>
+          <SidebarItem href="/board-games">
+            Board Games
           </SidebarItem>
           {/* <SidebarItem href="/">
             <a className="flex align-text-bottom">
@@ -141,7 +145,7 @@ const Sidebar = (props) => {
                   {user ? user.name : "Roshan"}
                 </div>
                 <div class="flex-1 text-sm tracking-wide text-gray-600 text-right">
-                  {balance}
+                  {balance} {" DRGZ"}
                 </div>
               </div>
             </Link>
@@ -162,12 +166,12 @@ const Sidebar = (props) => {
         ) : (
           <div className="flex flex-col mb-4 space-y-2 w-full">
           <Link href="/signup">
-              <button className="flex-1 rounded-md font-medium p-3 bg-green-100 hover:bg-gray-300 focus:shadow-outline">
+              <button className="flex-1 rounded-md font-medium p-3 bg-green-100 hover:bg-green-200 focus:shadow-outline">
                 <span className="text-green-900 ">Create An Account</span>
               </button>
             </Link>
             <Link href="/signin">
-              <button className="flex-1 rounded-md font-medium p-3 bg-gray-200 hover:bg-gray-300 focus:shadow-outline">
+              <button className="flex-1 rounded-md font-medium p-3 bg-gray-200 hover:bg-green-200 focus:shadow-outline">
                 <span>Sign In</span>
               </button>
             </Link>
