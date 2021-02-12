@@ -1,15 +1,20 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useContext} from "react";
 import { useDrag } from "react-dnd";
 import { getEmptyImage } from 'react-dnd-html5-backend';
 var classNames = require("classnames");
+import {accountId, accountKey} from "../utils/hedera-treasury";
+import axios from "axios";
+import {ActionContext} from "../context/GlobalState";
 
-const Item = ({ name, imgPath, price, subtitle }) => {
+const Item = ({ name, imgPath, price, subtitle, user }) => {
+  const {dispatch} = useContext(ActionContext);
   const [{ isDragging, handlerId }, drag, dragPreview] = useDrag({
     item: { name, price, imgPath, subtitle, type: "item" },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
       if (item && dropResult) {
         dropResult.addItem(item.imgPath, name);
+        transfer('2');
       }
     },
     collect: (monitor) => ({
@@ -18,9 +23,53 @@ const Item = ({ name, imgPath, price, subtitle }) => {
     }),
   });
 
+  const getBalance = async () => {
+    try {
+      const res = await axios.get(`/api/getbalance/${user.hederaAccountID}`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      dispatch({
+        type: "SET_BALANCE",
+        payload: res.data.balance
+      })
+
+      // if (res.ok) {
+      //   console.log("REsponse", res);
+      // } else {
+      //   throw new Error(await res.text());
+      // }
+    } catch (error) {
+      console.error(error);
+      // setErrorMessage(error.message);
+    }
+  };
+
+  const transfer = async (count) => {
+    const res = await axios.post(
+      `/api/transfer`,
+      {
+        count: count,
+        senderAccountID: user.hederaAccountID,
+        recieverAccountid: accountId,
+        senderPK: user.hederaPK
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    console.log(res);
+    getBalance();
+  }
+
   useEffect(() => {
-    dragPreview(getEmptyImage(), { captureDraggingState: true });
-}, []);
+      dragPreview(getEmptyImage(), { captureDraggingState: true });
+  }, []);
 
   var itemClass = classNames(
     "max-w-xs",
