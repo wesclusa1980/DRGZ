@@ -6,7 +6,7 @@ const {
     AccountId,
 } = require("@hashgraph/sdk");
 
-console.log("PK", process.env.PRIVATE_KEY)
+// console.log("PK", process.env.PRIVATE_KEY)
 
 export const tokenId = process.env.TOKENID;
 export const accountKey = PrivateKey.fromString(process.env.PRIVATE_KEY);
