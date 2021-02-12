@@ -161,16 +161,17 @@ const Sidebar = (props) => {
           </div>
         ) : (
           <div className="flex flex-col mb-4 space-y-2 w-full">
+          <Link href="/signup">
+              <button className="flex-1 rounded-md font-medium p-3 bg-green-100 hover:bg-gray-300 focus:shadow-outline">
+                <span className="text-green-900 ">Create An Account</span>
+              </button>
+            </Link>
             <Link href="/signin">
               <button className="flex-1 rounded-md font-medium p-3 bg-gray-200 hover:bg-gray-300 focus:shadow-outline">
                 <span>Sign In</span>
               </button>
             </Link>
-            <Link href="/signup">
-              <button className="flex-1 rounded-md font-medium p-3 bg-gray-200 hover:bg-gray-300 focus:shadow-outline">
-                <span>Sign Up</span>
-              </button>
-            </Link>
+            
           </div>
         )}
       </div>
