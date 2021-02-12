@@ -9,10 +9,10 @@ import {ActionContext} from "../context/GlobalState";
 const Item = ({ name, imgPath, price, subtitle, user }) => {
   const {dispatch} = useContext(ActionContext);
   const [{ isDragging, handlerId }, drag, dragPreview] = useDrag({
-    item: { name, price, imgPath, subtitle, type: "item" },
+    item: { name, price, imgPath, user, subtitle, type: "item" },
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
-      if (item && dropResult) {
+      if (item && dropResult && user) {
         dropResult.addItem(item.imgPath, name);
         transfer('2');
       }

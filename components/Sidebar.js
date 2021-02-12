@@ -12,11 +12,13 @@ const SidebarItem = (props) => {
     <Link href={props.href}>
       <a
         class={
-          "text-lg font-semibold flex items-center space-x-3 justify-between p-1 rounded-md hover:bg-white focus:shadow-outline " +
+          "text-lg font-semibold flex justify-end text-right space-x-3 p-1 rounded-md hover:bg-white focus:shadow-outline " +
           props.className
         }
       >
+        <div className="flex-end">
         {props.children}
+        </div>
       </a>
     </Link>
   );
