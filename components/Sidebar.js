@@ -1,5 +1,5 @@
 //from https://tailwindcomponents.com/component/sidebar-1
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import useSWR from "swr";
@@ -32,6 +32,20 @@ const Sidebar = (props) => {
       router.push("/");
     }
   };
+
+  console.log(router.pathname)
+
+  const [balance,setBalance] = useState();
+
+  const getBalance = async () => {
+    const res = await fetch(`/api/getbalance/${user.hederaAccountID}`)
+    const json = await res.json();
+    setBalance(json.balance);
+  }
+
+  useEffect(() => {
+    user && getBalance();
+  }, [user]);
 
   return (
     <div className="flex flex-col p-4 text-sm h-screen justify-between">
@@ -81,13 +95,14 @@ const Sidebar = (props) => {
           </SidebarItem> */}
         </div>
       </div>
-      {router.pathname === "/" && (
+      
+      {["/", "books", "/sneakers", "board-games"].includes(router.pathname) && (
         <div className="flex w-full justify-center">
-          <Dropzone></Dropzone>
+          <Dropzone balance={balance} user={user}></Dropzone>
         </div>
       )}
       <div className="flex w-full justify-center align-middle">
-        {user || true ? (
+        {user ? (
           <div class="w-full">
             <Link href="/account">
               {/* <div class="flex w-full items-center rounded-md space-x-4 p-1 mb-2 justify-between text-right hover:bg-gray-100 focus:shadow-outline">
@@ -109,7 +124,7 @@ const Sidebar = (props) => {
                   {user ? user.name : "Roshan"}
                 </div>
                 <div class="flex-1 text-sm tracking-wide text-gray-600 text-right">
-                  {user && user.drgz ? "Balance: " + user.drgz : "Balance: 0"}
+                  {balance ? "Balance: " + balance : "Balance: 0"} {" DRGZ"}
                 </div>
               </div>
             </Link>

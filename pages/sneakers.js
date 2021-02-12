@@ -7,6 +7,7 @@ import Item from "../components/Item";
 import ItemContainer from "../components/ItemContainer";
 import { getAuthCookie } from "../utils/auth-cookies";
 import useSWR from "swr";
+import CustomDragLayer from '../components/CustomDragLayer'
 
 export default function Sneakers({ token }) {
   const fetcher = (url) => fetch(url).then((r) => r.json());
@@ -14,6 +15,7 @@ export default function Sneakers({ token }) {
   const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
   return (
     <DndProvider backend={HTML5Backend}>
+      <CustomDragLayer/>
       <BaseTemplate>
         <div className="flex-1 flex flex-col">
           {/* <div className="flex align-items-center justify-between w-full p-2">
