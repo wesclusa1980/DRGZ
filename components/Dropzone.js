@@ -38,9 +38,9 @@ const Dropzone = () => {
   var defaultBorderClass = classNames(
     "border-gray-500",
     "text-center",
-    // "border-dashed",
+    "border-dashed",
     "h-72 w-72",
-    "transition-all duration-5000 ease-in-out",
+    "transition-all duration-1000 ease-in-out",
     "flex items-center justify-center",
     {
       "border-2 bg-offwhite": !canDrop,
@@ -53,11 +53,14 @@ const Dropzone = () => {
   var filledBorderClass = classNames(
     "border-gray-500",
     "h-72 w-72",
+    "border-dashed",
     "rounded-lg",
     "text-center",
     "border-2 bg-offwhite",
     {
       "border-blue-bright border-4 bg-white animate-pulse": isProcessing,
+      "border-blue-bright border-4": canDrop && isOver,
+      "border-4 animate-pulse bg-white": canDrop,
     }
   );
 

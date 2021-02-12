@@ -112,12 +112,12 @@ const Sidebar = (props) => {
             </Link>
             <div className="flex flex-col mb-4 space-y-2">
               <Link href="/account">
-                <button className="flex-1 border-2 border-dashed border-gray-500 rounded-md font-bold text-lg p-3 bg-gray-200 hover:bg-gray-300 focus:shadow-outline">
+                <button className="flex-1 border-4 border-double border-gray-500 rounded-md font-bold text-lg p-3 focus:shadow-outline transform duration-50 hover:scale-105">
                   <span>Get DRGZ</span>
                 </button>
               </Link>
               <button
-                className="flex-1 rounded-md font-medium p-3 bg-gray-200 hover:bg-gray-300 focus:shadow-outline"
+                className="flex-1 rounded-md font-medium p-3 bg-offwhite focus:shadow-outline transform duration-50 hover:scale-105"
                 onClick={logout}
               >
                 <span>Log Out</span>
