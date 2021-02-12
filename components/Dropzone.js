@@ -87,7 +87,10 @@ const Dropzone = ({ user, balance }) => {
       <p>
         When you have{" "}
         <Link href={user && !balance ? "/account" : "/signup"}>
-          <u data-tip="The DRGZ marketplace has its own currency and it's called DRGZ!">
+          <u
+            data-class="flex-1 rounded-md font-medium p-3 bg-gray "
+            data-tip="The DRGZ marketplace has its own currency and it's called DRGZ!"
+          >
             DRGZ
           </u>
         </Link>{" "}
