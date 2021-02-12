@@ -12,7 +12,7 @@ const SidebarItem = (props) => {
     <Link href={props.href}>
       <a
         class={
-          "text-lg font-semibold flex justify-end text-right space-x-3 p-1 rounded-md hover:bg-white focus:shadow-outline " +
+          "text-lg font-semibold text-gray-500 flex justify-end text-right space-x-3 p-1 rounded-md hover:bg-white focus:shadow-outline " +
           props.className
         }
       >
@@ -72,7 +72,7 @@ const Sidebar = (props) => {
   return (
     <div className="flex flex-col p-4 text-sm h-screen justify-between">
       <div className="flex flex-col">
-        <div className="flex flex-col w-full border-b-2 mb-3 pb-1 pl-12">
+        <div className="flex flex-col w-full mb-3 pb-1 pl-12">
           <div className="flex-1">
             <Link href="/">
               <button className="tracking-wide font-bold text-3xl align-baseline focus:outline-none ">
@@ -80,12 +80,12 @@ const Sidebar = (props) => {
               </button>
             </Link>
           </div>
-          <div className="flex-1 font-medium text-gray-700 align-baseline">
-            Buying and selling is now zero effort
+          <div className="flex-1 font-medium text-gray-500 align-baseline">
+            Buying and selling <br/> is now zero effort
           </div>
         </div>
         <div className="flex flex-col pl-12">
-          <SidebarItem href="/">All</SidebarItem>
+          <SidebarItem href="/">Shop All</SidebarItem>
           <SidebarItem href="/sneakers">Sneakers</SidebarItem>
           <SidebarItem href="/books">Books</SidebarItem>
           <SidebarItem href="/board-games">Board Games</SidebarItem>

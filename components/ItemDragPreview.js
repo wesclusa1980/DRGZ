@@ -8,7 +8,7 @@ const ItemDragPreview = ({ name, imgPath, price, subtitle }) => {
     "rounded-lg",
     "overflow-hidden",
     "transform",
-    "scale-95",
+    "scale-75",
     "border-4 border-green-900",
   );
   return (

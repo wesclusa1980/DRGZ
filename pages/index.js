@@ -30,7 +30,7 @@ export default function Home({ token }) {
           <Dropzone />
           </div>
         </div> */}
-            <div className="flex justify-end p-2 pt-6 pr-4 border-b-2">
+            <div className="flex justify-end p-3 pt-6 pr-4">
               <div className="flex">
                 <button
                   data-tip="Coming soon!"
