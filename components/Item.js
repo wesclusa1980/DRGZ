@@ -20,7 +20,7 @@ const Item = ({ name, imgPath, price, subtitle }) => {
     "max-w-xs",
     "rounded-lg",
     "overflow-hidden",
-    "shadow-lg",
+
     "transform",
     "duration-200",
     "scale-95",
@@ -29,7 +29,7 @@ const Item = ({ name, imgPath, price, subtitle }) => {
   return (
     <div ref={drag} data-handler-id={handlerId} class={itemClass}>
       <img class="w-full" src={imgPath} alt="Mountain" />
-      <div class="px-6 py-4 text-center text-gray-900">
+      <div class="px-6 py-4 text-center text-gray-900 bg-white">
         <div class="text-sm">{subtitle}</div>
         <div class="font-bold text-xl mb-1">{name}</div>
         <div class="font-bold text-xl mb-1">{`$${price}`}</div>

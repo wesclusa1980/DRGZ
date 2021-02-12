@@ -43,7 +43,7 @@ const Dropzone = () => {
     "transition-all duration-1000 ease-in-out",
     "flex items-center justify-center",
     {
-      "border-2 bg-offwhite": !canDrop,
+      "border-2 bg-white": !canDrop,
       "border-4 animate-pulse bg-white": canDrop,
       "rounded-full": !(canDrop && isOver),
       "border-blue-bright border-4 rounded-lg": canDrop && isOver,
@@ -56,7 +56,7 @@ const Dropzone = () => {
     "border-dashed",
     "rounded-lg",
     "text-center",
-    "border-2 bg-offwhite",
+    "border-2 bg-white",
     {
       "border-blue-bright border-4 bg-white animate-pulse": isProcessing,
       "border-blue-bright border-4": canDrop && isOver,

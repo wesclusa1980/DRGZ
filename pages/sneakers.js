@@ -46,7 +46,7 @@ export default function Sneakers({ token }) {
               />
               <Item
                 subtitle="Adidas"
-                name="Red, Black and White"
+                name="RBW"
                 price="90.32"
                 imgPath="https://images.unsplash.com/photo-1552346154-21d32810aba3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
               />

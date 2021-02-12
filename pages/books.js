@@ -27,26 +27,26 @@ export default function Books({ token }) {
           <div className="flex-1 overflow-y-scroll">
             <ItemContainer>
               <Item
-                subtitle="Ocean"
-                name="Picture"
+                subtitle="Picture"
+                name="Ocean"
                 price="90.32"
                 imgPath="https://images.unsplash.com/photo-1467951591042-f388365db261?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
               />
               <Item
-                subtitle="The Tent"
-                name="Fiction"
+                subtitle="Fiction"
+                name="The Tent"
                 price="90.32"
                 imgPath="https://images.unsplash.com/photo-1531072901881-d644216d4bf9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1351&q=80"
               />
               <Item
-                subtitle="The Little Book of Hygge"
-                name="Self-improvement"
+                subtitle="Self-improvement"
+                name="The Little Book of Hygge"
                 price="90.32"
                 imgPath="https://images.unsplash.com/photo-1594312915251-48db9280c8f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
               />
               <Item
-                subtitle="Bronze Dragon Codex"
-                name="Fantasy"
+                subtitle="Fantasy"
+                name="Bronze Dragon Codex"
                 price="90.32"
                 imgPath="https://images.unsplash.com/photo-1589998059171-988d887df646?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80"
               />
