@@ -90,7 +90,7 @@ const Item = ({ name, imgPath, price, subtitle, user }) => {
       <div class="px-6 py-4 text-center text-gray-900 bg-white">
         <div class="text-sm">{subtitle}</div>
         <div class="font-bold text-xl mb-1">{name}</div>
-        <div class="font-bold text-xl mb-1">{`${price} DRGZ`}</div>
+        <div class="font-bold text-xl mb-1 text-green-900">{`${price} DRGZ`}</div>
       </div>
       {/* below is "tags" for card */}
       {/* <div class="px-6 pt-4 pb-2">

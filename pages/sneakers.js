@@ -41,9 +41,9 @@ export default function Sneakers({ token }) {
             <ItemContainer>
               <Item
                 subtitle="Adidas"
-                name="Yeezys"
+                name="Suede High Top"
                 price="50"
-                imgPath="/boosts.webp"
+                imgPath="https://cdn.trendhunterstatic.com/thumbs/adidas-suede-sneaker.jpeg"
               />
               <Item
                 subtitle="Nike"
