@@ -3864,6 +3864,11 @@ react-native-get-random-values@^1.4.0:
   dependencies:
     fast-base64-decode "^1.0.0"
 
+react-payment-inputs@^1.1.7:
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/react-payment-inputs/-/react-payment-inputs-1.1.7.tgz#d9a2471913525ef83533d97385aba8f5f0500e9b"
+  integrity sha512-yBCqDBJxS1AbsljS2duGxoaTFVbkVVqcW5IUxCxSe2H8x0H+UoLiooeK4Cm0rEI64BSvfu8a/mQNjyCmymvbag==
+
 react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz"

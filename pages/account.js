@@ -4,16 +4,26 @@ import useSWR from "swr";
 import { PrivateKey } from "@hashgraph/sdk";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { data } from "autoprefixer";
+import { PaymentInputsWrapper, usePaymentInputs } from "react-payment-inputs";
+import images from "react-payment-inputs/images";
 
 export default function Account() {
   const fetcher = (url) => fetch(url).then((r) => r.json());
 
   const [balance, setBalance] = useState();
+  const [drgzPurchaseAmount, setDrgzPurchaseAmount] = useState();
 
   const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
 
   console.log(user);
+
+  const {
+    meta,
+    getCardImageProps,
+    getCardNumberProps,
+    getExpiryDateProps,
+    getCVCProps,
+  } = usePaymentInputs();
 
   const getBalance = async () => {
     try {
@@ -95,21 +105,19 @@ export default function Account() {
                     DRGZ Balance
                   </dt>
                   <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                    <div className="flex justify-between">
-                      <div>{balance}</div>
-                      <button
-                        className="bg-blue-bright hover:bg-blue-600 p-4 rounded-lg"
-                        onClick={() => topUp(10)}
-                      >
-                        10 for $10
-                      </button>
-                      <button
-                        className="bg-blue-bright hover:bg-blue-600 p-4 rounded-lg"
-                        onClick={() => topUp(5)}
-                      >
-                        5 for $5
-                      </button>
-                    </div>
+                    {/* <button
+                      className="bg-blue-bright hover:bg-blue-600 p-4 rounded-lg"
+                      onClick={() => topUp(10)}
+                    >
+                      10 for $10
+                    </button>
+                    <button
+                      className="bg-blue-bright hover:bg-blue-600 p-4 rounded-lg"
+                      onClick={() => topUp(5)}
+                    >
+                      5 for $5
+                    </button> */}
+                    {balance}
                   </dd>
                 </div>
                 <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -120,38 +128,62 @@ export default function Account() {
                     ${balance}.00
                   </dd>
                 </div>
+                <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium text-gray-500">
+                    Top Up Balance
+                  </dt>
+                  <dd className="mt-1 pt-5 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                    <div className="flex">
+                      <div className="flex flex-col">
+                        <div className="align-middle">Enter Amount:</div>
+                        <input
+                          placeHolder="DRGZ amount"
+                          className="border rounded-lg border-gray-400 p-2"
+                          onChange={(e) =>
+                            setDrgzPurchaseAmount(e.currentTarget.value)
+                          }
+                          value={drgzPurchaseAmount}
+                        />
+                      </div>
+                      <div className="flex flex-col px-2">
+                        <div>Payment details:</div>
+                        <div className={`flex bg-white border p-2 ${meta.error ? 'border-red-700' :'border-gray-400'} rounded-lg align-middle`}>
+                          <div className="px-2">
+                            <svg {...getCardImageProps({ images })} />
+                          </div>
+                          <input
+                            {...getCardNumberProps()}
+                            className="align-middle border-0 h-5/6 w-40 px-1 focus:outline-none"
+                          />
+                          <input
+                            {...getExpiryDateProps()}
+                            className="align-middle border-0 h-5/6 w-16 px-1 focus:outline-none"
+                          />
+                          <input
+                            {...getCVCProps()}
+                            className="align-middle border-0 h-5/6 w-16 px-1 focus:outline-none"
+                          />
+                        </div>
+                        <div className="text-red-700 py-1">
+                          {meta.isTouched && meta.error && (
+                            <span>Error: {meta.error}</span>
+                          )}
+                        </div>
+                        <div className="flex p-2 mt-2 justify-end w-full">
+                          <button
+                            className="rounded-md font-medium p-3 bg-gray-200 hover:bg-gray-300 focus:shadow-outline"
+                            onClick={() => topUp(drgzPurchaseAmount)}
+                          >
+                            Purchase DRGZ
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </dd>
+                </div>
               </dl>
             </div>
           </div>
-          {/* <section className="body-font">
-              <div className="container px-8 pb-24 mx-auto pt-36 lg:px-4">
-                <div className="flex flex-wrap -m-4">
-                  <div className="p-4 mx-auto mb-6 lg:w-1/3 lg:mb-0">
-                    <div className="h-full text-center">
-                      <p className="text-4xl ...">DRGZ Balance</p>
-                      <p className="text-2xl ... text-black">0</p>
-                      <br />
-                      <p className="text-4xl ...">DRGZ Balance</p>
-                      <p className="text-2xl ... text-black">0</p>
-                      <br />
-                      <br />
-                      <p className="text-base font-medium leading-relaxed text-gray-700">
-                        Skate ipsum dolor sit amet, slam birdie wheels ollie
-                        darkslide egg plant. Baseplate 540 helipop flypaper
-                        feeble griptape. Nollie deck street bluntslide half-cab
-                        yeah. Casper slide ollie north 540 Bill Danforth slide
-                        cess slide nose blunt. Pressure flip Streetstyle in
-                        Tempe mute-air judo air backside fastplant yeah.
-                      </p>
-                      <h2 className="mt-12 text-sm font-medium tracking-wider text-gray-900 title-font">
-                        {user && user.name}
-                      </h2>
-                      <p className="text-gray-500">{user && user.email}</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section> */}
         </div>
       </div>
     </BaseTemplate>
