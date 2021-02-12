@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 const BaseTemplate = (props) => {
   return (
     <div class="flex bg-offwhite w-full h-screen">
-      <div class="w-3/12 bg-white rounded shadow-lg">
+      <div class="w-3/12 bg-gray rounded">
         <Sidebar />
       </div>
 

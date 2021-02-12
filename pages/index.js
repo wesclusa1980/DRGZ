@@ -13,10 +13,14 @@ export default function Home({ token }) {
 
   const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
   return (
-    <DndProvider backend={HTML5Backend}>
-      <BaseTemplate>
-        <div className="flex-1 flex flex-col">
-          {/* <div className="flex align-items-center justify-between w-full p-2">
+    <>
+      <Head>
+        <title>DRGZ | Home</title>
+      </Head>
+      <DndProvider backend={HTML5Backend}>
+        <BaseTemplate>
+          <div className="flex-1 flex flex-col">
+            {/* <div className="flex align-items-center justify-between w-full p-2">
           <div className="flex items-center text-black font-bold text-3xl px-2">
           Buying and selling is now zero effort
           </div>
@@ -25,37 +29,90 @@ export default function Home({ token }) {
           </div>
         </div> */}
 
-          <div className="flex-1 overflow-y-scroll">
-            <ItemContainer>
-              <Item
-                subtitle="Adidas"
-                name="Yeezys"
-                price="90.32"
-                imgPath="/boosts.webp"
-              />
-              <Item
-                subtitle="Adidas"
-                name="Yeezys"
-                price="90.32"
-                imgPath="/boosts.webp"
-              />
-              <Item
-                subtitle="Adidas"
-                name="Yeezys"
-                price="90.32"
-                imgPath="/boosts.webp"
-              />
-              <Item
-                subtitle="Adidas"
-                name="Yeezys"
-                price="90.32"
-                imgPath="/boosts.webp"
-              />
-            </ItemContainer>
+            <div className="flex-1 overflow-y-scroll">
+              <ItemContainer>
+                <Item
+                  subtitle="Adidas"
+                  name="Yeezys"
+                  price="90.32"
+                  imgPath="/boosts.webp"
+                />
+                <Item
+                  subtitle="Nike"
+                  name="Red"
+                  price="90.32"
+                  imgPath="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
+                />
+                <Item
+                  subtitle="Adidas"
+                  name="Hype"
+                  price="90.32"
+                  imgPath="https://images.unsplash.com/photo-1520256862855-398228c41684?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
+                />
+                <Item
+                  subtitle="Adidas"
+                  name="RBW"
+                  price="90.32"
+                  imgPath="https://images.unsplash.com/photo-1552346154-21d32810aba3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                />
+              </ItemContainer>
+              <ItemContainer>
+                <Item
+                  subtitle="Picture"
+                  name="Ocean"
+                  price="90.32"
+                  imgPath="https://images.unsplash.com/photo-1467951591042-f388365db261?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                />
+                <Item
+                  subtitle="Fiction"
+                  name="The Tent"
+                  price="90.32"
+                  imgPath="https://images.unsplash.com/photo-1531072901881-d644216d4bf9?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1351&q=80"
+                />
+                <Item
+                  subtitle="Self-improvement"
+                  name="The Little Book of Hygge"
+                  price="90.32"
+                  imgPath="https://images.unsplash.com/photo-1594312915251-48db9280c8f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                />
+                <Item
+                  subtitle="Fantasy"
+                  name="Bronze Dragon Codex"
+                  price="90.32"
+                  imgPath="https://images.unsplash.com/photo-1589998059171-988d887df646?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80"
+                />
+              </ItemContainer>
+              <ItemContainer>
+                <Item
+                  subtitle="Make words!"
+                  name="Scrabble"
+                  price="90.32"
+                  imgPath="https://images.unsplash.com/photo-1591635566278-10dca0ca76ee?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                />
+                <Item
+                  subtitle="Don't tip the tower!"
+                  name="Jenga"
+                  price="90.32"
+                  imgPath="https://images.unsplash.com/photo-1489850846882-35ef10a4b480?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1353&q=80"
+                />
+                <Item
+                  subtitle="Go to war!"
+                  name="Strategy"
+                  price="90.32"
+                  imgPath="https://images.unsplash.com/photo-1611891487122-207579d67d98?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                />
+                <Item
+                  subtitle="You win this game!"
+                  name="Domino"
+                  price="90.32"
+                  imgPath="https://images.unsplash.com/photo-1566694271453-390536dd1f0d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
+                />
+              </ItemContainer>
+            </div>
           </div>
-        </div>
-      </BaseTemplate>
-    </DndProvider>
+        </BaseTemplate>
+      </DndProvider>
+    </>
   );
 }
 
