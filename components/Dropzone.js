@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useDrop } from "react-dnd";
 var classNames = require("classnames");
+import ReactTooltip from 'react-tooltip';
+
 import useSWR from "swr";
 
 import Link from "next/link";
@@ -72,14 +74,14 @@ const Dropzone = ({user, balance}) => {
   const defaultDropText =
     user && balance ? (
       <p>
-        With {" " + balance + " DRGZ "} available you can drag & drop a product here and it
+        With {" " + balance} <u data-tip="The DRGZ marketplace has its own currency and it's called DRGZ!"> DRGZ</u> available you can drag & drop a product here and it
         will be purchased instantly!
       </p>
     ) : (
       <p>
         When you have{" "}
         <Link href={user && !balance ? "/account" : "/signup"}>
-          <u>DRGZ</u>
+          <u data-tip="The DRGZ marketplace has its own currency and it's called DRGZ!">DRGZ</u>
         </Link>{" "}
         you can drag & drop a product here and it will be purchased instantly!
       </p>
@@ -87,6 +89,7 @@ const Dropzone = ({user, balance}) => {
 
   return (
     <div ref={drop} data-handler-id={handlerId} className="flex items-center">
+      <ReactTooltip />
       <fieldset
         class={items.length === 0 ? defaultBorderClass : filledBorderClass}
       >
