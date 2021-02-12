@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import BaseTemplate from "../components/BaseTemplate";
 
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function Signin() {
   const router = useRouter();
@@ -119,6 +120,13 @@ export default function Signin() {
                 </button>
               </div>
             </form>
+            {errorMessage}
+            <br />
+            <br />
+            Don't have an account?{" "}
+            <a class="text-blue-700">
+              <Link href="/signup">Sign up</Link>
+            </a>
           </div>
         </div>
       </div>

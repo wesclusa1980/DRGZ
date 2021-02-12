@@ -1,11 +1,11 @@
 import { query as q } from "faunadb";
 import { guestClient } from "../../utils/fauna-client";
 import { setAuthCookie } from "../../utils/auth-cookies";
-import {client, tokenId} from "../../utils/hedera-treasury";
+import { client, tokenId } from "../../utils/hedera-treasury";
 import {
   AccountCreateTransaction,
   TokenAssociateTransaction,
-  PrivateKey
+  PrivateKey,
 } from "@hashgraph/sdk";
 import { stringify } from "postcss";
 
@@ -31,8 +31,10 @@ export default async function signup(req, res) {
     const publicKey = privateKey.publicKey;
 
     const transaction = new AccountCreateTransaction()
-    .setKey(publicKey)
-    .setInitialBalance(0)
+      .setKey(publicKey)
+      .setInitialBalance(0);
+
+    console.log(privateKey + publicKey + transaction);
 
     const txResponsecreate = await transaction.execute(client);
 
@@ -53,12 +55,12 @@ export default async function signup(req, res) {
     console.log("tokenId", tokenId);
 
     const tokentransactionAssociate = await new TokenAssociateTransaction()
-    .setAccountId(hederaAccountID)
-    .setTokenIds([tokenId])
-    .freezeWith(client);
+      .setAccountId(hederaAccountID)
+      .setTokenIds([tokenId])
+      .freezeWith(client);
 
     const signTx = await tokentransactionAssociate.sign(privateKey);
-    //Submit the transaction to a Hedera network 
+    //Submit the transaction to a Hedera network
     const txResponse = await signTx.execute(client);
     //Request the receipt of the transaction
     const receipt = await txResponse.getReceipt(client);

@@ -38,23 +38,27 @@ const Sidebar = (props) => {
       <div className="flex flex-col">
         <div className="flex flex-col w-full border-b-2 mb-3 pb-1 pl-12">
           <div className="flex-1">
-          <Link href="/">
-            <button className="tracking-wide font-bold text-3xl align-baseline focus:outline-none ">
-              DRGZ
-            </button>
-          </Link>
+            <Link href="/">
+              <button className="tracking-wide font-bold text-3xl align-baseline focus:outline-none ">
+                DRGZ
+              </button>
+            </Link>
           </div>
           <div className="flex-1 font-medium text-gray-700 align-baseline">
             Buying and selling is now zero effort
           </div>
         </div>
         <div className="flex flex-col pl-12">
-          <div className="text-lg font-semibold pt-4">
-            All Categories
-          </div>
-          <SidebarItem>Sneakers</SidebarItem>
-          <SidebarItem>Books</SidebarItem>
-          <SidebarItem>Board Games</SidebarItem>
+          <div className="text-lg font-semibold pt-4">All Categories</div>
+          <SidebarItem>
+            <Link href="/sneakers">Sneakers</Link>
+          </SidebarItem>
+          <SidebarItem>
+            <Link href="/books">Books</Link>
+          </SidebarItem>
+          <SidebarItem>
+            <Link href="/board-games">Board Games</Link>
+          </SidebarItem>
           {/* <SidebarItem href="/">
             <a className="flex align-text-bottom">
               <span className="px-2 pt-1">Home</span>
@@ -103,10 +107,9 @@ const Sidebar = (props) => {
               <div class="flex w-full justify-between hover:bg-gray-100 focus:shadow-outline p-1 mb-2 rounded-md items-center">
                 <div class="flex-1 font-semibold text-lgtracking-wide">
                   {user ? user.name : "Roshan"}
-                
                 </div>
                 <div class="flex-1 text-sm tracking-wide text-gray-600 text-right">
-                {user && user.drgz ? "Balance: " + user.drgz : "Balance: 0"}
+                  {user && user.drgz ? "Balance: " + user.drgz : "Balance: 0"}
                 </div>
               </div>
             </Link>
