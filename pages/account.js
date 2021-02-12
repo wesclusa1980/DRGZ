@@ -147,7 +147,7 @@ export default function Account() {
                       </div>
                       <div className="flex flex-col px-2">
                         <div>Payment details:</div>
-                        <div className={`flex bg-white border p-2 ${meta.error ? 'border-red-700' :'border-gray-400'} rounded-lg align-middle`}>
+                        <div className={`flex bg-white border p-2 ${meta.isTouched && meta.error ? 'border-red-700' :'border-gray-400'} rounded-lg align-middle`}>
                           <div className="px-2">
                             <svg {...getCardImageProps({ images })} />
                           </div>
