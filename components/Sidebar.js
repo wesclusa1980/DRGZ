@@ -144,7 +144,7 @@ const Sidebar = (props) => {
                   </span>
                 </div>
               </div> */}
-              <div class="flex w-full space-x-3 justify-end hover:bg-white focus:shadow-outline p-2 mb-2 rounded-md items-center">
+              <div class="flex w-full space-x-3 justify-end hover:bg-white focus:shadow-outline p-4 mb-2 rounded-md items-center">
                 <div class="font-semibold">
                   {user ? user.name : "Roshan"}
                 </div>
