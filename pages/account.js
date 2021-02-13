@@ -168,13 +168,15 @@ export default function Account() {
                 </div>
                 <div className="flex justify-between">
                   <div
-                    className={`flex bg-white border p-2 ${
-                      meta.isTouched && meta.error
-                        ? "border-red-700"
-                        : "border-gray-400"
-                    } rounded-lg align-middle`}
+                    className={`flex bg-white border p-2
+                    rounded-lg align-middle`}
+                    // ${
+                    //   meta.isTouched && meta.error
+                    //     ? "border-red-700"
+                    //     : "border-gray-400"
+                    // } 
                   >
-                    <div className="px-2">
+                    <div className="flex flex-col px-2 justify-center">
                       <svg {...getCardImageProps({ images })} />
                     </div>
                     <input
@@ -190,11 +192,11 @@ export default function Account() {
                       className="align-middle border-0 w-16 px-1 focus:outline-none"
                     />
                   </div>
-                  <div className="text-red-700 py-1">
+                  {/* <div className="text-red-700 py-1">
                     {meta.isTouched && meta.error && (
                       <span>Error: {meta.error}</span>
                     )}
-                  </div>
+                  </div> */}
                   <div className="flex flex-col px-2">
                     <button
                       className="rounded-md font-medium p-3 bg-gray-200 hover:bg-gray-300 focus:shadow-outline"
@@ -219,7 +221,7 @@ export default function Account() {
                       Account
                     </h3>
                   </div>
-                  <div className="pl-3 text-gray-400">{user.email}</div>
+                  <div className="pl-3 text-gray-400">{user && user.email}</div>
                 </div>
               </div>
               <div className="border-t border-gray-200">

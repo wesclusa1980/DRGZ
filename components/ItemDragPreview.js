@@ -17,7 +17,7 @@ const ItemDragPreview = ({ name, imgPath, price, subtitle }) => {
       <div class="px-6 py-4 text-center text-gray-900 bg-green-100">
         <div class="text-sm">{subtitle}</div>
         <div class="font-bold text-xl mb-1">{name}</div>
-        <div class="font-bold text-xl mb-1">{`$${price}`}</div>
+        <div class="font-bold text-xl mb-1">{`${price} DRGZ`}</div>
       </div>
     </div>
   );
