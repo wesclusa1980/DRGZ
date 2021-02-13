@@ -28,26 +28,28 @@ export default function Account() {
   } = usePaymentInputs();
 
   const getBalance = async () => {
-    try {
-      const res = await axios.get(`/api/getbalance/${user.hederaAccountID}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      dispatch({
-        type: "SET_BALANCE",
-        payload: res.data.balance,
-      });
-
-      // if (res.ok) {
-      //   console.log("REsponse", res);
-      // } else {
-      //   throw new Error(await res.text());
-      // }
-    } catch (error) {
-      console.error(error);
-      // setErrorMessage(error.message);
+    if(user.hederaAccountID){
+      try {
+        const res = await axios.get(`/api/getbalance/${user.hederaAccountID}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+  
+        dispatch({
+          type: "SET_BALANCE",
+          payload: res.data.balance,
+        });
+  
+        // if (res.ok) {
+        //   console.log("REsponse", res);
+        // } else {
+        //   throw new Error(await res.text());
+        // }
+      } catch (error) {
+        console.error(error);
+        // setErrorMessage(error.message);
+      }
     }
   };
 
@@ -57,6 +59,7 @@ export default function Account() {
       `/api/topup`,
       {
         count: count,
+        user_id: user.id,
         account_id: user.hederaAccountID,
       },
       {
@@ -68,7 +71,14 @@ export default function Account() {
 
     console.log("Response", res);
     getBalance();
+    const newuser = axios.get("/api/user", {
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+    mutateUser(newuser);
     setDrgzPurchaseAmount("");
+    
   };
 
   useEffect(() => {
@@ -269,12 +279,12 @@ export default function Account() {
                     </dd>
                   </div>
 
-                  {/* <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                     <dt className="text-sm font-medium text-gray-500">
-                      Last Transaction
+                      Last TopUp
                     </dt>
-                    <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"></dd>
-                  </div> */}
+                <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2"> {user?.lastTopup && `Purchased ${user?.lastTopup} DRGZ via your debit card **** **** **** 5678`} </dd>
+                  </div>
                 </dl>
               </div>
             </div>

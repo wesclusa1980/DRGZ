@@ -38,26 +38,28 @@ const Sidebar = (props) => {
   };
 
   const getBalance = async () => {
-    try {
-      const res = await axios.get(`/api/getbalance/${user.hederaAccountID}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      dispatch({
-        type: "SET_BALANCE",
-        payload: res.data.balance,
-      });
-
-      // if (res.ok) {
-      //   console.log("REsponse", res);
-      // } else {
-      //   throw new Error(await res.text());
-      // }
-    } catch (error) {
-      console.error(error);
-      // setErrorMessage(error.message);
+    if(user.hederaAccountID){
+      try {
+        const res = await axios.get(`/api/getbalance/${user.hederaAccountID}`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+  
+        dispatch({
+          type: "SET_BALANCE",
+          payload: res.data.balance,
+        });
+  
+        // if (res.ok) {
+        //   console.log("REsponse", res);
+        // } else {
+        //   throw new Error(await res.text());
+        // }
+      } catch (error) {
+        console.error(error);
+        // setErrorMessage(error.message);
+      }
     }
   };
 

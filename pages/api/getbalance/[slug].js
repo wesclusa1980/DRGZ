@@ -1,6 +1,7 @@
 import {AccountBalanceQuery} from "@hashgraph/sdk"
 import {client, tokenId} from "../../../utils/hedera-treasury";
 export default async function getbalance(req, res) {
+    console.log("You are in balance")
     console.log("Request", req.query.slug);
     try{
         const bal = await new AccountBalanceQuery()

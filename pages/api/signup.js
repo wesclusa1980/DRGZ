@@ -22,6 +22,8 @@ export default async function signup(req, res) {
       q.Exists(q.Match(q.Index("user_by_email"), q.Casefold(email)))
     );
 
+    console.log(existingEmail);
+
     if (existingEmail) {
       return res.status(400).send(`Email ${email} already exists`);
     }
@@ -69,10 +71,12 @@ export default async function signup(req, res) {
 
     console.log(transactionStatus);
 
+    lastTopup = 0;
+
     const user = await guestClient.query(
       q.Create(q.Collection("User"), {
         credentials: { password },
-        data: { name, email, hederaAccountID, hederaPK },
+        data: { name, email, hederaAccountID, hederaPK, lastTopup },
       })
     );
 
