@@ -6,6 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { PaymentInputsWrapper, usePaymentInputs } from "react-payment-inputs";
 import images from "react-payment-inputs/images";
+import ReactTooltip from "react-tooltip";
 import { ActionContext } from "../context/GlobalState";
 import { GlobalState } from "../context/GlobalState";
 
@@ -51,6 +52,7 @@ export default function Account() {
   };
 
   const topUp = async (count) => {
+    count += (10*Math.floor(count/100))
     const res = await axios.post(
       `/api/topup`,
       {
@@ -75,9 +77,24 @@ export default function Account() {
 
   const [close, setIsClose] = useState(false);
 
+  // const getDrgzPromoValue = () => {
+  //   if(drgzPurchaseAmount>=100){
+  //     let count = Number(drgzPurchaseAmount) + (10*Math.floor(drgzPurchaseAmount/100))
+  //     return <div className="px-2" data-tip={`${drgzPurchaseAmount} + ${10*Math.floor(drgzPurchaseAmount/100)} bonus!)`}>{` ${String(count)} `}</div>
+  //   } else{
+  //     return drgzPurchaseAmount
+  //   }
+
+  // }
+
+  useEffect(() => {
+    ReactTooltip.rebuild();
+}, [drgzPurchaseAmount]);
+
   return (
     // <GlobalState>
     <BaseTemplate>
+      {/* <ReactTooltip/> */}
       <div className="flex-1 p-4 text-gray-500 w-full">
         {!close && (
           <div class="bg-green-100">
@@ -157,7 +174,7 @@ export default function Account() {
                     value={drgzPurchaseAmount}
                   />
                   <div className="flex align-middle pl-3 text-lg">
-                    to {drgzPurchaseAmount ? drgzPurchaseAmount : 0} {" DRGZ"}
+                    to {drgzPurchaseAmount  ? (Number(drgzPurchaseAmount)+(10*Math.floor(drgzPurchaseAmount/100))) : 0} {" DRGZ"}
                     <img src="/token3.svg" className="h-8 w-8 mx-1" />
                   </div>
                 </div>
@@ -200,7 +217,7 @@ export default function Account() {
                   <div className="flex flex-col px-2">
                     <button
                       className="rounded-md font-medium p-3 bg-gray-200 hover:bg-gray-300 focus:shadow-outline"
-                      onClick={() => topUp(drgzPurchaseAmount)}
+                      onClick={() => topUp(Number(drgzPurchaseAmount))}
                       disabled={drgzPurchaseAmount ? false : true}
                     >
                       Purchase DRGZ
