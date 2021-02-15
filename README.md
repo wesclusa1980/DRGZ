@@ -26,14 +26,17 @@ Tokenization options on most public cryptocurrency networks force issuers to cop
 With Hedera Token Service, Hedera provides the ability to issue tokens on a globally distributed public network without compromising on performance. Developers can now define and issue tokens directly to the Hedera mainnet. Tokens inherit many of the characteristics of [hbar](https://hedera.com/hbar) itself, including asynchronous byzantine fault tolerant consensus, thousands of transactions per second, and finality in a matter of seconds without a risk of forking.
 
 ## How we built it
-We've connected The Hedera Token Service with our website (a nextjs site deployed to Netlify) via FaunaDB and some Netlify Functions.
+We used The Hedera Token Service Javascript SDK to connect our [website](https://drgz.store) - a nextjs site deployed to Netlify - using nexts API Routes for API endpoints as serverless functions.
 
-We've mocked the credit card transactions so that our demo always delivers a successful payment, and this triggers our connection with Hedera to mint DRGZ tokens at a 1:1 ratio.
+FaunaDB is our serverless backend. FaunaDB offers us highly secure user authentication so when a user registers on our site we generate a new Hedera account on their behalf.
+
+We've mocked the credit card transactions so that our demo always delivers a successful payment, and this triggers our connection with Hedera to mint / issue DRGZ tokens to users at a 1:1 ratio. DRGZ is our very own currency used for payment within our marketplace, its issuance and circulation will be tethered to its 'burn and mint equilibrium' model.
 
 ## What's next for DRGZ marketplace and currency
-This project serves as a prototype for some bigger ideas we have, where the buying and selling of low cost items wouldn't be feasible without removing the vast majority of the usual fees involved with debit and credit card transactions. We're excited for this next chapter!
+This project serves as a prototype for some bigger ideas we have, where the buying and selling of low cost items wouldn't be feasible without removing the vast majority of the usual fees involved with debit and credit card transactions. We have steered away from calling DRGZ a cryptocurrency because in its simplest form it is just the "unit of account" specifically for the DRGZ marketplace. However, tokens afford us the benefit of much more imaginative economics and the future opportunity to make the currency available on public exchanges and this is where the currency could become more cryptocurrency-like. We're excited for this next chapter!
 
 ## Status
+Submitted for judging... [HEDERA VIRTUAL HACKATHON](https://devpost.com/software/drgz-marketplace-and-currency)
 
 ## Contact
 Team formed by [Kelvin Lockwood](https://twitter.com/kelvinlockwood) - feel free to contact me!
