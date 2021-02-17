@@ -51,11 +51,6 @@ const Sidebar = (props) => {
           payload: res.data.balance,
         });
   
-        // if (res.ok) {
-        //   console.log("REsponse", res);
-        // } else {
-        //   throw new Error(await res.text());
-        // }
       } catch (error) {
         console.error(error);
         // setErrorMessage(error.message);

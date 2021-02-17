@@ -8,3 +8,4 @@ export const tokenId = process.env.TOKENID;
 export const accountKey = PrivateKey.fromString(process.env.PRIVATE_KEY);
 export const accountId = AccountId.fromString(process.env.ACCOUNT_ID);
 export const client = Client.forTestnet().setOperator(accountId, accountKey);
+export const PRIVATE_KEY = process.env.PRIVATE_KEY

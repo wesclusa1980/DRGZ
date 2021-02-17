@@ -71,7 +71,7 @@ export default async function signup(req, res) {
 
     console.log(transactionStatus);
 
-    lastTopup = 0;
+    const lastTopup = 0;
 
     const user = await guestClient.query(
       q.Create(q.Collection("User"), {
