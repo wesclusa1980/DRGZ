@@ -29,5 +29,8 @@
     "styled-components": "^5.2.1",
     "swr": "^0.4.2",
     "tailwindcss": "^2.0.3"
+  },
+  "resolutions": {
+    "minipass": "^2.7.0"
   }
 }
