@@ -8,7 +8,7 @@ import {
   PrivateKey,
 } from "@hashgraph/sdk";
 import { stringify } from "postcss";
-console.log("start")
+console.log("start");
 export default async function signup(req, res) {
   const { name, email, password } = req.body;
 
