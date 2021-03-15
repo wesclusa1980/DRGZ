@@ -60,7 +60,7 @@ export default function Signup() {
                 alt="Workflow"
               />
               <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-                Create an Account
+                Become a Member
               </h2>
             </div>
             <form class="space-y-6" onSubmit={onSubmit} method="POST">
