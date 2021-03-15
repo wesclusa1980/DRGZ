@@ -48,10 +48,10 @@ export default async function signup(req, res) {
     const hederaPK = privateKey.toString();
     console.log("Account", hederaAccountID);
 
-    // const newAccount = PrivateKey.fromString(hederaAccountID);
-    // const newPK = AccountId.fromString(pk);
+    const newAccount = PrivateKey.fromString(hederaAccountID);
+    const newPK = AccountId.fromString(pk);
 
-    // console.log("hederaAccountID", newAccount)
+    console.log("hederaAccountID", newAccount)
     ///TokenAssociateTransaction
 
     console.log("tokenId", tokenId);
