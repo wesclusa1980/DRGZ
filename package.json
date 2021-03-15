@@ -1,5 +1,5 @@
 {
-  "name": "drgz",
+  "name": "nft-marketplace",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -37,13 +37,6 @@
   },
   "resolutions": {
     "minipass": "^2.7.0"
-  },
-  "proxy": {
-    "/.netlify/functions": {
-      "target": "http://localhost:9000",
-      "pathRewrite": {
-        "^/\\.netlify/functions": ""
-      }
-    }
   }
+  
 }
