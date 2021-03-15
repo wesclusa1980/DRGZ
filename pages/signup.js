@@ -136,7 +136,7 @@ export default function Signup() {
                       />
                     </svg>
                   </span>
-                  Sign Up
+                  Submit
                 </button>
               </div>
             </form>
