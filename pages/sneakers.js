@@ -41,7 +41,7 @@ export default function Sneakers({ token }) {
             <ItemContainer>
               <Item
                 user={user}
-                subtitle="Adidas"
+                subtitle="AdidasTHE GAME | DIAMOND 💎 Edition | 7 of 7"
                 name="Suede High Top"
                 price="50"
                 imgPath="https://lh3.googleusercontent.com/Bg1Bv16CKBPpKRMth17aPub4LwzlMeUnBuM3LoU51DX4V0S96ebqWy-FQt0CL_K2YtM9zAfhKYSZX6A2qkCj8i41ddkEBW_NhRdHnw=s0"
