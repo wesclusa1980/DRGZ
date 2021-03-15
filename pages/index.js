@@ -13,7 +13,7 @@ export default function Home({ token }) {
   const fetcher = (url) => fetch(url).then((r) => r.json());
 
   const { data: user, mutate: mutateUser } = useSWR("/api/user", fetcher);
-  console.log("start");
+
   return (
     <>
       <Head>
