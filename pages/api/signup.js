@@ -15,7 +15,7 @@ export default async function signup(req, res) {
   if (!name || !email || !password) {
     return res.status(400).send("Name, Email and Password not provided");
   }
-  console.log("DB Call");
+  
   try {
     const existingEmail = await guestClient.query(
       // Exists returns boolean, Casefold returns normalize string
