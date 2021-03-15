@@ -71,7 +71,7 @@ const Sidebar = (props) => {
           <div className="flex-col justify-center">
             <Link href="/">
               <button className="tracking-wide text-left font-bold text-3xl align-baseline focus:outline-none ">
-                DRGZ
+                The Break0uts
               </button>
             </Link>
             <div className="text-left text-green-900">
@@ -89,9 +89,9 @@ const Sidebar = (props) => {
         ) && (
           <div className="flex flex-col pl-12">
             <SidebarItem href="/">Shop All</SidebarItem>
-            <SidebarItem href="/sneakers">Sneakers</SidebarItem>
-            <SidebarItem href="/books">Books</SidebarItem>
-            <SidebarItem href="/board-games">Board Games</SidebarItem>
+            <SidebarItem href="/sneakers">Digital Art</SidebarItem>
+            <SidebarItem href="/books">What is an NFT?</SidebarItem>
+            <SidebarItem href="/board-games">About Us</SidebarItem>
             {/* <SidebarItem href="/">
             <a className="flex align-text-bottom">
               <span className="px-2 pt-1">Home</span>

@@ -44,7 +44,7 @@ export default function Sneakers({ token }) {
                 subtitle="Adidas"
                 name="Suede High Top"
                 price="50"
-                imgPath="https://cdn.trendhunterstatic.com/thumbs/adidas-suede-sneaker.jpeg"
+                imgPath="https://lh3.googleusercontent.com/Bg1Bv16CKBPpKRMth17aPub4LwzlMeUnBuM3LoU51DX4V0S96ebqWy-FQt0CL_K2YtM9zAfhKYSZX6A2qkCj8i41ddkEBW_NhRdHnw=s0"
               />
               <Item
                 user={user}
