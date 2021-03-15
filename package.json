@@ -37,5 +37,13 @@
   },
   "resolutions": {
     "minipass": "^2.7.0"
+  },
+  "proxy": {
+    "/.netlify/functions": {
+      "target": "http://localhost:9000",
+      "pathRewrite": {
+        "^/\\.netlify/functions": ""
+      }
+    }
   }
 }
