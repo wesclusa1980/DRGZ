@@ -17,7 +17,7 @@ export default function Home({ token }) {
   return (
     <>
       <Head>
-        <title>DRGZ | Home</title>
+        <title>The Break0uts | Home</title>
       </Head>
       <DndProvider backend={HTML5Backend}>
         <CustomDragLayer />
@@ -46,17 +46,17 @@ export default function Home({ token }) {
               <ItemContainer>
                 <Item
                   user={user}
-                  subtitle="Adidas"
-                  name="Suede High Top"
+                  subtitle="Anthony Geathers"
+                  name="THE GAME | DIAMOND 💎 Edition | 7 of 7"
                   price="50"
-                  imgPath="https://cdn.trendhunterstatic.com/thumbs/adidas-suede-sneaker.jpeg"
+                  imgPath="https://lh3.googleusercontent.com/Bg1Bv16CKBPpKRMth17aPub4LwzlMeUnBuM3LoU51DX4V0S96ebqWy-FQt0CL_K2YtM9zAfhKYSZX6A2qkCj8i41ddkEBW_NhRdHnw=s0"
                 />
                 <Item
                   user={user}
-                  subtitle="Nike"
-                  name="Red"
+                  subtitle="Anthony Geathers"
+                  name="THREE KINGS | DIAMOND 💎 Edition | 7 of 7                 "
                   price="50"
-                  imgPath="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
+                  imgPath="https://lh3.googleusercontent.com/TO3F5VVjWX4h9bRaGvHUTm3Rol2TrOYwPNOKoHVgzWFuBcS5anvBF0kmaV8WC3HJ2lKquD-lQv69o2-gFVsDr8upy6RWAxD4a_Qb2Q=s0"
                 />
                 <Item
                   user={user}

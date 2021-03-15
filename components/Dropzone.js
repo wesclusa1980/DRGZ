@@ -91,7 +91,7 @@ const Dropzone = ({ user, balance }) => {
             data-class="flex-1 rounded-md font-medium p-3 bg-gray "
             data-tip="The DRGZ marketplace has its own currency and it's called DRGZ!"
           >
-            DRGZ
+            hBARs
           </u>
         </Link>{" "}
         you can drag & drop a product here and it will be purchased instantly!
@@ -118,6 +118,7 @@ const Dropzone = ({ user, balance }) => {
             })}
           </div>
         </div>
+        <div/>
         <legend class={textClass}>BUY IT NOW</legend>
       </fieldset>
     </div>
