@@ -30,7 +30,7 @@
     "react-payment-inputs": "^1.1.7",
     "react-popper": "0.10.4",
     "react-tooltip": "^4.2.13",
-    "sharp": "^0.21.1",
+    "sharp": "0.21.1",
     "styled-components": "^5.2.1",
     "swr": "^0.4.2",
     "tailwindcss": "^2.0.3"
